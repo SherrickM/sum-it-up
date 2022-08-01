@@ -1,23 +1,28 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "sum-it-up",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "postinstall": "patch-package",
+    "heroku-postbuild": "patch-package"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "description": "sum-it-up",
+  "author": {
+    "name": ""
+  },
   "dependencies": {
-    "apollo-server-express": "^3.10.0",
-    "bcrypt": "^5.0.1",
-    "express": "^4.18.1",
-    "graphql": "^16.5.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.5.0"
+    "axios": "^0.27.2",
+    "body-parser": "^1.15.0",
+    "cors": "^2.8.5",
+    "debug": "^2.2.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.14.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19",
+    "patch-package": "^6.4.7",
+    "react-dotenv": "^0.1.3"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.19"
-  }
+  "main": "server.js"
 }
