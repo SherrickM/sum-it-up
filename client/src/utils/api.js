@@ -11,7 +11,7 @@ const axios = require("axios");
 //   url: 'https://textanalysis-text-summarization.p.rapidapi.com/text-summarizer-text',
 //   headers: {
 //     'content-type': 'application/x-www-form-urlencoded',
-//     'X-RapidAPI-Key': '182714b1e6mshb412212f9fdf6e5p13fb70jsn4cac94f5b2c6',
+//     'X-RapidAPI-Key': '',
 //     'X-RapidAPI-Host': 'textanalysis-text-summarization.p.rapidapi.com'
 //   },
 //   data: encodedParams
