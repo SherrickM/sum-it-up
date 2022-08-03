@@ -1,9 +1,10 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button';
 
 const Home = () => {
     return (
         <div>
-            This is Home page
+            <Button variant="primary">Primary</Button>{' '}
         </div>
     )
 }
