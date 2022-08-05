@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
         margin: 0,
         width: '100%',
         height: "8vh",
+        minHeight: "100px",
         background: '#003262',
     },
     toolbar: {
@@ -70,7 +71,7 @@ const Header = () => {
                     <Typography
                         component={Button}
                         href="/">
-                        <span className={classes.title}>App Name/Logo</span>
+                        <span className={classes.title}>Sum It Up Logo</span>
                     </Typography>
                     <List>
                         {Auth.loggedIn() ? (
