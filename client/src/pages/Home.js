@@ -1,4 +1,5 @@
 import React from "react";
+import Profile from "./ProfileTest";
 
 export default function Home(){
   return (
@@ -23,7 +24,9 @@ export default function Home(){
                 </ul>
 
             </div>
-	    </div>                    
+	    </div>  
+      <Profile/>                  
     </div>
+    
   );
 }

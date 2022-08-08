@@ -10,11 +10,12 @@ import MuiAlert from '@material-ui/lab/Alert';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_USER } from '../utils/mutations';
 
+
 import Auth from '../utils/auth';
 
 const useStyles = makeStyles((_theme) => ({
     container: {
-        height: "100vh",
+        height: "50vh",
     },
     form: {
         maxWidth: 650,
@@ -39,7 +40,7 @@ const useStyles = makeStyles((_theme) => ({
     },
     button: {
         marginTop: "1rem",
-        color: "#003262",
+        color: "black",
         borderColor: "grey",
     },
     field: {
@@ -181,6 +182,8 @@ const Signup = () => {
                 </Alert>
             </Snackbar>
         </Grid>
+        
+
     );
 };
 
