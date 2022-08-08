@@ -73,34 +73,7 @@ function Profile (){
                   <polyline points="21 15 16 10 5 21"/>
                 </svg>
               </div>
-              <span class="access-text">Images</span>
-            </div>
-            <div class="access-link-wrapper">
-              <div class="access-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-music">
-                  <path d="M9 18V5l12-2v13"/>
-                  <circle cx="6" cy="18" r="3"/>                   <circle cx="18" cy="16" r="3"/>
-                </svg>
-              </div>
-              <span class="access-text">Music</span>
-            </div>
-            <div class="access-link-wrapper">
-              <div class="access-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play">
-                  <polygon points="5 3 19 12 5 21 5 3"/>
-                </svg>
-              </div>
-              <span class="access-text">Video</span>
-            </div>
-            <div class="access-link-wrapper">
-              <div class="access-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-left">
-                  <line x1="17" y1="10" x2="3" y2="10"/>
-                  <line x1="21" y1="6" x2="3" y2="6"/>
-                  <line x1="21" y1="14" x2="3" y2="14"/>
-                  <line x1="17" y1="18" x2="3" y2="18"/>
-                </svg>
-              </div>
+           
               <span class="access-text">Docs</span>
             </div>
             <div class="access-link-wrapper">
@@ -111,7 +84,7 @@ function Profile (){
                   <polyline points="2 12 12 17 22 12"/>
                 </svg>
               </div>
-              <span class="access-text">Apps</span>
+              <span class="access-text">Articles</span>
             </div>
             <div class="access-link-wrapper">
               <div class="access-icon">
@@ -127,10 +100,10 @@ function Profile (){
         </section>
         <section class="content-section">
            <div class="section-header-wrapper">
-             <h1 class="section-header">Preview</h1>
-             <a class="section-header-link">
+             <h1 class="section-header">New Summery</h1>
+             {/* <a class="section-header-link">
                View in folders
-             </a>
+             </a> */}
            </div>
           <div class="content-section-line">
             <div class="section-part left">
@@ -138,44 +111,17 @@ function Profile (){
                 <div class="image-overlay">
                   <div class="video-info">
                     <div class="video-info-text">
-                      <p class="video-name medium">Happiness & Tears</p>
-                      <p class="video-subtext medium">45.5 MB</p>
+                      <p class="video-name medium">Drag and Drop your files here</p>
+                      <p class="video-subtext medium"> files must be below 45.5 MB</p>
                     </div>
                     <button class="btn-play"></button>
                 </div>
                 </div>
                 <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2251&q=80"/>
-                <span class="video-time">10:32</span>
+                <span class="video-time">Browse</span>
               </a>
             </div>
-            <div class="section-part right">
-              <div class="content-part-line">
-                <a class="image-wrapper">
-                  <div class="image-overlay">
-                  <div class="video-info">
-                  <div class="video-info-text">
-                    <p class="video-name tiny">High Hopes</p>
-                    <p class="video-subtext tiny">50 MB</p>
-                  </div>
-                </div>
-                </div>
-                <img src="https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80"/>
-                  <span class="video-time">02:35</span>
-              </a>
-                <a class="image-wrapper">
-                  <div class="image-overlay">
-                  <div class="video-info">
-                  <div class="video-info-text">
-                    <p class="video-name tiny">Imaginery you</p>
-                    <p class="video-subtext tiny">210.2 MB</p>
-                  </div>
-                </div>
-                </div>
-                  <img src="https://images.unsplash.com/photo-1542359649-31e03cd4d909?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80"/>
-                  <span class="video-time">04:15</span>
-                </a>
-              </div>
-            </div>
+            
           </div>
         </section>
         <section class="content-section">
@@ -240,7 +186,7 @@ function Profile (){
               </svg>
             </div>
             <div class="download-item-texts">
-              <p class="download-text-header">Glitter.mp4</p>
+              <p class="download-text-header">New Project.docx</p>
               <p class="download-text-info">34.45 MB<span>Waiting for download</span></p>
             </div>
             <div class="download-icon">
@@ -268,7 +214,7 @@ function Profile (){
               </svg>
             </div>
             <div class="download-item-texts">
-              <p class="download-text-header">Glitter.mp4</p>
+              <p class="download-text-header">SelfDriving.PDF</p>
               <div class="progress-bar">
                 <span class="progress"></span>
               </div>
@@ -282,31 +228,7 @@ function Profile (){
             </div>
           </div>
         </div>
-        <div class="right-area-header-wrapper">
-          <p class="right-area-header">File Received</p>
-        </div>
-        <div class="received-item-line">
-          <div class="progress-line">
-            <span class="time start">15:30</span>
-            <span class="time end">18:30</span>
-          </div>
-          <div class="received-items-content">
-            <div class="received-files">
-              <div class="image-wrapper">
-              <img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"/>
-            </div>
-            <div class="image-wrapper">
-              <img src="https://images.unsplash.com/photo-1498855926480-d98e83099315?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"/>
-            </div>
-            <div class="image-wrapper">
-              <img src="https://images.unsplash.com/photo-1492648272180-61e45a8d98a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"/>
-            </div>
-            </div>
-            <div class="received-files-info">
-              Received <span class="info-purple">3 images</span> total  <span class="info-purple">50.3 MB</span>
-            </div>
-          </div>
-        </div>
+       
       </div>
     </div>
     
