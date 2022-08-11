@@ -8,14 +8,14 @@ const sumSchema = new Schema(
       unique: true,
       trim: true,
     },
+  },
+  {
+    toJSON: {
+      getters: true,
+    },
   }
-  //   {
-  //     toJSON: {
-  //       virtuals: true
-  //     }
-  //   }
 );
 
-const Summary = model("Summary", userSchema);
+// const Summary = model("Summary", sumSchema);
 
-module.exports = Summary;
+module.exports = sumSchema;
