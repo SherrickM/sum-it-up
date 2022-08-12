@@ -8,14 +8,20 @@ const sumSchema = new Schema(
       unique: true,
       trim: true,
     },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      // get: timestamp =>
+    }
   },
   {
     toJSON: {
       getters: true,
     },
+    id: false
   }
 );
 
-// const Summary = model("Summary", sumSchema);
+
 
 module.exports = sumSchema;
