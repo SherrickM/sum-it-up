@@ -71,7 +71,7 @@ const Header = () => {
                     <Typography
                         component={Button}
                         href="/">
-                        <span className={classes.title}>Sum It Up Logo</span>
+                        <span className={classes.title}><img src="/assets/images/sum-it-up-logo.png" alt="Sum it up!" /></span>
                     </Typography>
                     <List>
                         {Auth.loggedIn() ? (
