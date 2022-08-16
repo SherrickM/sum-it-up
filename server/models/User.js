@@ -19,13 +19,20 @@ const userSchema = new Schema(
       type: String,
       required: true,
       minlength: 5
-    }
+    },
+    folders:[
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Folder'
+      }
+    ]
   },
-//   {
-//     toJSON: {
-//       virtuals: true
-//     }
-//   }
+  {
+    toJSON: {
+      virtuals: true
+    },
+    id: false
+  }
 );
 
 // set up pre-save middleware to create password
