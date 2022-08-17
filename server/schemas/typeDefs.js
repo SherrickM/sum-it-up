@@ -15,13 +15,8 @@ const typeDefs = gql`
     createdAt: String 
   }
 
-  type summaryMapTuple {
-    key: Int
-    value: String
-  }
-
   type SummaryApi {
-    sentences: [summaryMapTuple]
+    sentences: String
   }
 
   type Summary{

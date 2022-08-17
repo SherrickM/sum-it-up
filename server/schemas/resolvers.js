@@ -2,8 +2,6 @@ require('dotenv').config()
 const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
 const fetch = require("node-fetch");
-
-console.log(process.env)
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -18,7 +16,7 @@ const resolvers = {
       }
       throw new AuthenticationError("Not logged in!");
     },
-    getSummary: (_, data) => {
+    getSummary: async (_, data) => {
       let {text, sentnum} = data;
       const encodedParams = new URLSearchParams();
       encodedParams.append(
@@ -35,16 +33,20 @@ const resolvers = {
         headers: {
           "content-type": "application/x-www-form-urlencoded",
           "X-RapidAPI-Key":
-          process.env.apikey,
+          "47a5a67642msh009c5b0acb21432p1fd494jsn96c3b9ceacca",
           "X-RapidAPI-Host": "textanalysis-text-summarization.p.rapidapi.com",
         },
         body: encodedParams,
       };
 
-      fetch(url, options)
+      var sumval = await fetch(url, options)
         .then((res) => res.json())
-        .then((json) => console.log(json))
+        .then((json) => {
+          return json})
         .catch((err) => console.error("error:" + err));
+        console.log(typeof(sumval));
+        var rs=  sumval.sentences.join(' ');
+        return {sentences:rs};
     },
   },
   Mutation: {
