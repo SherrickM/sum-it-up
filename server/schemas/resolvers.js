@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User } = require('../models');
+const fetch = require("node-fetch")
 
 const { signToken } = require('../utils/auth');
 
@@ -13,6 +14,24 @@ const resolvers = {
       }
       throw new AuthenticationError('Not logged in!')
     },
+    getSummary:(text, sentnum) => {
+      const url = 'https://textanalysis-text-summarization.p.rapidapi.com/text-summarizer';
+
+      const options = {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'X-RapidAPI-Key': '182714b1e6mshb412212f9fdf6e5p13fb70jsn4cac94f5b2c6',
+          'X-RapidAPI-Host': 'textanalysis-text-summarization.p.rapidapi.com'
+        },
+        body: `{"text":`+{text}+`,"sentnum":`+{sentnum}+`}`
+        };
+
+        fetch(url, options)
+          .then(res => res.json())
+          .then(json => console.log(json))
+          .catch(err => console.error('error:' + err));
+    }
   },
   Mutation: {
     addUser: async (_parent, args) => {

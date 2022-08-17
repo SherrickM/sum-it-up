@@ -15,6 +15,15 @@ const typeDefs = gql`
     createdAt: String 
   }
 
+  type summaryMapTuple {
+    key: Int
+    value: String
+  }
+
+  type SummaryApi {
+    sentences: [summaryMapTuple]
+  }
+
   type Summary{
   summary: String!
   createdAt: String 
@@ -27,6 +36,7 @@ const typeDefs = gql`
 
   type Query {
     me: User
+    getSummary(text: String!, sentnum: Int): SummaryApi
   }
 
   type Mutation {
