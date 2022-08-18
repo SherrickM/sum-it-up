@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { AuthenticationError } = require("apollo-server-express");
-const { User } = require("../models");
+const { User, Folder } = require("../models");
 const fetch = require("node-fetch");
 const { signToken } = require("../utils/auth");
 
@@ -72,6 +72,15 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    // not done
+    // createFolder: async (_parent, {name}) => {
+    //   const user = await Folder.create({name});
+
+    //   const token = signToken(user);
+    //   return {
+    //     token: token,
+    //     user: user
+    //   };
   },
 };
 
