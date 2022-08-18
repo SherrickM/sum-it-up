@@ -1,96 +1,49 @@
 
 import {
-    AppBar, Toolbar, List, Typography
+  AppBar, Toolbar, List, Typography
 } from '@material-ui/core';
 import Box from "@material-ui/core/Box";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Auth from '../../utils/auth';
 
-// Icons
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import CreateIcon from '@material-ui/icons/Create';
-import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
-import ChatIcon from '@material-ui/icons/Chat';
-
-const useStyles = makeStyles((theme) => ({
-    appbar: {
-        flexGrow: 1,
-        margin: 0,
-        width: '100%',
-        height: "8vh",
-        minHeight: "100px",
-        background: '#003262',
-    },
-    toolbar: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingLeft: '1rem',
-        paddingTop: '1.5rem',
-    },
-    listItem: {
-        marginRight: theme.spacing(2),
-        color: "whitesmoke",
-        "&:hover": {
-            color: "orange",
-        },
-        "& .MuiTypography-body1": {
-            '@media (max-width:1200px)': {
-                fontSize: '0.9rem',
-            },
-            '@media (min-width:1200px)': {
-                fontSize: '1.1rem',
-            },
-        },
-    },
-    title: {
-        color: "whitesmoke",
-        '@media (max-width:1200px)': {
-            fontSize: '1.2rem',
-        },
-        '@media (min-width:1200px)': {
-            fontSize: '1.5rem',
-        },
-    },
-}));
 
 const Header = () => {
 
-    const classes = useStyles();
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
 
-    const logout = event => {
-        event.preventDefault();
-        Auth.logout();
-    };
+  return (
+    <>
+      <div class="nav">
 
-    return (
-        <Box component="nav">
-            <AppBar position="static" className={classes.appbar}>
-                <Toolbar className={classes.toolbar}>
-                    <Typography
-                        component={Button}
-                        href="/">
-                        <span className={classes.title}><img src="/assets/images/sum-it-up-logo.png" alt="Sum it up!" /></span>
-                    </Typography>
-                    <List>
-                        {Auth.loggedIn() ? (
-                            <>
-                                <Button className={classes.listItem} href="/chat"><ChatIcon /> Features</Button>
-                                <Button className={classes.listItem} href="/" onClick={logout}><ExitToAppIcon /> Logout</Button>
+        <a class="app-name" component={Button} href="/">Sum it Up</a>
+        <div class=" justify-content-center">
+          <div>
+            {Auth.loggedIn() ? (
+              <>
+                <Button class="btn-logout" href="/" onClick={logout}> 
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-log-out" viewBox="0 0 24 24">
+                    <defs />
+                    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" />
+                  </svg>
+                </Button>
+               
 
-                            </>
-                        ) : (
-                            <>
-                                <Button className={classes.listItem} href="/login"><DoubleArrowIcon /> Login</Button>
-                                <Button className={classes.listItem} href="/signup"><CreateIcon /> Signup</Button>
-                            </>
-                        )}
-                    </List>
-                </Toolbar>
-            </AppBar>
-        </Box>
-    );
+              </>
+            ) : (
+              <>
+                <Button class="btn-login m-3" href="/login">Sign In</Button>
+                <Button class="btn-logout " href="/signup">Sign Up</Button>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Header
