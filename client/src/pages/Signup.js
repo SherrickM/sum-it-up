@@ -15,8 +15,6 @@ import Auth from '../utils/auth';
 
 
 
-
-
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -250,7 +248,6 @@ const Signup = () => {
             </section>
             {/* Section: Design Block */}
         </>
-
 
     );
 };

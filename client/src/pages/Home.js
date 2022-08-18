@@ -115,6 +115,7 @@ export default function Home(){
                 <button class="more-action"></button>
               </div>
             </div>
+
           </div>
         </section>
       </div>
@@ -129,8 +130,7 @@ export default function Home(){
         </div>
        <Profile/>                  
     </div></>
-     
-  
+ 
     
   );
 }

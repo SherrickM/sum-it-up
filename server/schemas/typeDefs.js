@@ -15,6 +15,10 @@ const typeDefs = gql`
     createdAt: String 
   }
 
+  type SummaryApi {
+    sentences: String
+  }
+
   type Summary{
   summary: String!
   createdAt: String 
@@ -27,6 +31,7 @@ const typeDefs = gql`
 
   type Query {
     me: User
+    getSummary(text: String!, sentnum: Int): SummaryApi
   }
 
   type Mutation {
