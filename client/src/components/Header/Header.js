@@ -8,13 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Auth from '../../utils/auth';
 
 
-
-
-
-
 const Header = () => {
-
-
 
   const logout = event => {
     event.preventDefault();
@@ -22,31 +16,6 @@ const Header = () => {
   };
 
   return (
-    // <Box component="nav">
-    //     <AppBar position="static" className={classes.appbar}>
-    //         <Toolbar className={classes.toolbar}>
-    //             <Typography
-    //                 component={Button}
-    //                 href="/">
-    //                 <span className={classes.title}>Sum It Up Logo</span>
-    //             </Typography>
-    //             <List>
-    //                 {Auth.loggedIn() ? (
-    //                     <>
-    //                         <Button className={classes.listItem} href="/chat"><ChatIcon /> Features</Button>
-    //                         <Button className={classes.listItem} href="/" onClick={logout}><ExitToAppIcon /> Logout</Button>
-
-    //                     </>
-    //                 ) : (
-    //                     <>
-    //                         <Button className={classes.listItem} href="/login"><DoubleArrowIcon /> Login</Button>
-    //                         <Button className={classes.listItem} href="/signup"><CreateIcon /> Signup</Button>
-    //                     </>
-    //                 )}
-    //             </List>
-    //         </Toolbar>
-    //     </AppBar>
-    // </Box>
     <>
       <div class="nav">
 
@@ -61,7 +30,7 @@ const Header = () => {
                     <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" />
                   </svg>
                 </Button>
-                
+               
 
               </>
             ) : (
