@@ -1,5 +1,4 @@
-{
-  "name": "sum-it-up",
+{"name": "sum-it-up",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
