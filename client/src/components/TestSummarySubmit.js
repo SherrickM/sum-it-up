@@ -1,6 +1,7 @@
 import React, { useState, useReducer } from "react";
 import summation from './summationsymble.png'
 const axios = require('axios').default;
+require('dotenv').config()
 
 // import { useMutation } from "@apollo/client";
 // import { LOGIN_USER } from "../../utils/mutations";
@@ -27,19 +28,24 @@ const TextSummarySubmit = () => {
     event.preventDefault();
     console.log(formState);
     try {
-      axios
-        .get(
-          "http://localhost:3001/api/test/" + encodeURIComponent(formState)
-        )
-        .then((res) => {
-          return res.json()
-        })
-        .then(data => {
-          console.log(data)
-        });
-      // .then(setsummarizedState(a)).then(console.log(summarizedState))
-    } catch (err) {
-      console.log(err);
+      var options = {
+        method: 'POST',
+        url: process.env.REACT_APP_APIURL + '/api/sumapi',
+        headers: {'Content-Type': 'application/json'},
+        data: {
+          text: formState,
+          sentnum: 1
+        }
+      };
+      
+      var r = await axios.request(options).then(function (response) {
+        console.log(response.data);
+      });
+    }
+    catch(e)
+    {
+      console.error(e);
+
     }
   };
 
