@@ -113,7 +113,14 @@ function Profile() {
             <div className="search-wrapper mt-1 file-catagory" >
               <input className="input" type="text" placeholder="Catagory e.g. Science" />
             </div>
+
             <button type="submit" className="btn btn-secondary m-2 submit_for_summery">Summarize!</button>
+
+            <div class="search-wrapper mt-1 file-catagory" >
+              <input class="input" type="text" placeholder="Number of sentences e.g. 3 or 5" />
+            </div>
+            <button type="submit" class="btn btn-secondary m-2 submit_for_summery">Summarize!</button>
+
           </form>
         </div>
 
