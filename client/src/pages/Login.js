@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
-import Box from "@material-ui/core/Box";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
-import Snackbar from '@material-ui/core/Snackbar';
+
 import MuiAlert from '@material-ui/lab/Alert';
 import { useMutation } from '@apollo/react-hooks';
 import { LOGIN_USER } from '../utils/mutations';
@@ -128,7 +122,7 @@ const Login = (_props) => {
                             >
                                 <div className="card-body p-5 shadow-5 text-center">
                                     <h2 className="fw-bold mb-5">Sign In</h2>
-                                    <form>
+                                    <form onSubmit={handleFormSubmit}>
                                         
                                         {/* Email input */}
                                         <div className="form-outline mb-4">
@@ -136,6 +130,9 @@ const Login = (_props) => {
                                                 type="email"
                                                 id="form3Example3"
                                                 className="form-control"
+                                                onChange={handleChange}
+                                                name="email"
+                                                value={formState.email}
                                             />
                                             <label className="form-label" htmlFor="form3Example3">
                                                 Email address
@@ -147,6 +144,9 @@ const Login = (_props) => {
                                                 type="password"
                                                 id="form3Example4"
                                                 className="form-control"
+                                                onChange={handleChange}
+                                                name="password"
+                                                value={formState.password}
                                             />
                                             <label className="form-label" htmlFor="form3Example4">
                                                 Password
@@ -157,6 +157,7 @@ const Login = (_props) => {
                                         <button
                                             type="submit"
                                             className="btn btn-primary btn-block mb-4"
+                                            
                                         >
                                             Sign In
                                         </button>

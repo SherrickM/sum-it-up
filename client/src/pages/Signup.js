@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import { makeStyles, withStyles } from "@material-ui/core/styles";
-import Box from "@material-ui/core/Box";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import CreateIcon from '@material-ui/icons/Create';
-import Snackbar from '@material-ui/core/Snackbar';
+
 import MuiAlert from '@material-ui/lab/Alert';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_USER } from '../utils/mutations';
@@ -144,18 +138,21 @@ const Signup = () => {
                             >
                                 <div className="card-body p-5 shadow-5 text-center">
                                     <h2 className="fw-bold mb-5">Sign up now</h2>
-                                    <form>
+                                    <form onSubmit={handleFormSubmit}>
                                         {/* 2 column grid layout with text inputs for the first and last names */}
                                         <div className="row">
                                             <div className="">
                                                 <div className="form-outline mb-4">
                                                     <input
                                                         type="text"
-                                                        id="form3Example1"
+                                                        id="username"
                                                         className="form-control"
+                                                        onChange={handleChange}
+                                                        value={formState.username}
+                                                        name="username"
                                                     />
-                                                    <label className="form-label" htmlFor="form3Example1">
-                                                        Full name
+                                                    <label className="form-label" htmlFor="username">
+                                                        User Name
                                                     </label>
                                                 </div>
                                             </div>
@@ -165,10 +162,13 @@ const Signup = () => {
                                         <div className="form-outline mb-4">
                                             <input
                                                 type="email"
-                                                id="form3Example3"
+                                                id="email"
                                                 className="form-control"
+                                                onChange={handleChange}
+                                                value={formState.email}
+                                                name="email"
                                             />
-                                            <label className="form-label" htmlFor="form3Example3">
+                                            <label className="form-label" htmlFor="email">
                                                 Email address
                                             </label>
                                         </div>
@@ -176,10 +176,13 @@ const Signup = () => {
                                         <div className="form-outline mb-4">
                                             <input
                                                 type="password"
-                                                id="form3Example4"
+                                                id="password"
                                                 className="form-control"
+                                                onChange={handleChange}
+                                                value={formState.password}
+                                                name="password"
                                             />
-                                            <label className="form-label" htmlFor="form3Example4">
+                                            <label className="form-label" htmlFor="password">
                                                 Password
                                             </label>
                                         </div>
