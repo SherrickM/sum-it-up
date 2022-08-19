@@ -1,4 +1,4 @@
-var z = require('dotenv').config()
+require('dotenv').config()
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Folder } = require("../models");
 const fetch = require("node-fetch");
@@ -6,10 +6,22 @@ const { signToken } = require("../utils/auth");
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 
 
+
+
 var getClient = function()
 {
-  const key = z.parsed.apikey;
-  const endpoint = z.parsed.endpoint;
+  if (!(process.env.apikey))
+  {
+    throw "No apikey in process.env";
+  }
+
+  if (!(process.env.endpoint))
+  {
+    throw "No endpoint in process.env";
+  }
+
+  const key = process.env.apikey;
+  const endpoint = process.env.endpoint;
   // Authenticate the client with your key and endpoint
   const textAnalyticsClient = new TextAnalyticsClient(endpoint, new AzureKeyCredential(key));
   return textAnalyticsClient;
