@@ -1,12 +1,9 @@
 require('dotenv').config()
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Folder } = require("../models");
+const { User, Summary} = require("../models");
 const fetch = require("node-fetch");
 const { signToken } = require("../utils/auth");
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
-
-
-
 
 var getClient = function()
 {
@@ -66,56 +63,68 @@ async function getAzSummary(text, sentnum)
   return r.join(" ");
 }
 
+
 const resolvers = {
   Query: {
+    users: async () => {
+      return User.find().populate('summaries');
+    },
+    user: async (parent, { username }) => {
+      return User.findOne({ username }).populate('summaries');
+    },
+    summaries: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Summary.find(params).sort({ createdAt: -1 });
+    },
+    summary: async (parent, { summaryId }) => {
+      return Summary.findOne({ _id: summaryId });
+    },
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }).select(
-          "-__v -password"
-        );
-
-        return userData;
+        return User.findOne({ _id: context.user._id }).populate('summaries');
       }
-      throw new AuthenticationError("Not logged in!");
-    },
-    getSummary: async (_, data) => {
-      let {text, sentnum} = data;
-      var r = await getAzSummary(text, sentnum);
-      return {sentences:r};
+      throw new AuthenticationError('You need to be logged in!');
     },
   },
-  Mutation: {
-    addUser: async (_parent, args) => {
-      const user = await User.create(args);
-      const token = signToken(user);
 
+  Mutation: {
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
       return { token, user };
     },
-    login: async (_parent, { email, password }) => {
+    login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError("Incorrect Username");
+        throw new AuthenticationError('No user found with this email address');
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError("Incorrect Password");
+        throw new AuthenticationError('Incorrect credentials');
       }
 
       const token = signToken(user);
+
       return { token, user };
     },
-    // not done
-    // createFolder: async (_parent, {name}) => {
-    //   const user = await Folder.create({name});
+    addSummary: async (parent, { summaryText }, context) => {
+      if (context.user) {
+        const summary = await Summary.create({
+          summaryText,
+        });
 
-    //   const token = signToken(user);
-    //   return {
-    //     token: token,
-    //     user: user
-    //   };
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { summaries: summary._id } }
+        );
+
+        return summary;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 };
 

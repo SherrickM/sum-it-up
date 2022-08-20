@@ -19,7 +19,6 @@
 
     background-position: center;
     background-size: cover;
-    padding: 20px;
   }
   :root {
     --dark-font: #0f0f10;
@@ -60,11 +59,9 @@
   }
   .app-name {
     font-weight: 700;
-
     font-size: 36px;
     line-height: 24px;
     color: var(--dark-font);
-    margin-bottom: 32px;
     text-decoration: none;
 
   }
@@ -629,3 +626,97 @@
     }
   }
   
+
+
+  /******/
+.text-dark-purple {color:#441f49;}
+.text-purple {color: #763775;}
+.text-light-purple {color: #b094b5;}
+.text-dark-gold {color:#ffbd07;}
+.bg-dark-purple {background:#441f49;}
+.bg-dark-purple {background:#ffbd07;}
+
+.btn-main {
+  background-color: #ffbd07 !important;
+  color: #441f49 !important;
+  border: 0 !important;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.btn-main:hover {
+  background-color: #441f49 !important;
+  color: #ffbd07 !important;
+}
+
+main {
+  width: 100%;
+}
+header {
+  background: #441f49;
+  padding: 20px 25px;
+}
+.nav {
+  justify-content: space-between;
+  padding-right: 5%;
+}
+.MuiButton-root {
+  color: #ffffff !important;
+}
+.MuiButton-root:hover {
+  color: #ffbd07 !important;
+}
+.primary-logo {
+  max-width: 200px;
+}
+
+.login-screen, .signup-screen {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.form-outline {
+  text-align: left;
+}
+
+.fa-brands, .fab {
+  color:#441f49;
+}
+.fa-brands:hover, .fab:hover {
+  color: #ffbd07;
+}
+footer {
+  background: #441f49;
+  padding: 20px 25px;
+  color: #ffffff;
+}
+footer .right-col .fa-brands, footer .right-col .fab{
+  color: #ffbd07;
+}
+ul.contributors-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.contributors-list li {
+  float: left;
+  width: 20%;
+  padding: 20px 0;;
+}
+
+ul.contributors-list li a {
+  color:#ffbd07;
+  text-decoration: none;
+  font-size: 18px;
+}
+ul.contributors-list li a:hover {
+  color: #ffffff;
+}
+ul.contributors-list li a i {
+  display: block;
+  color: #b094b5 !important;
+  font-size: 25px;
+}

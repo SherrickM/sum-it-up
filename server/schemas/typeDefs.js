@@ -6,13 +6,7 @@ const typeDefs = gql`
     _id: ID!
     username: String
     email: String
-    folders: [Folder]
-  }
-
-  type Folder {
-    name: String!
     summaries: [Summary]
-    createdAt: String 
   }
 
   type SummaryApi {
@@ -20,7 +14,8 @@ const typeDefs = gql`
   }
 
   type Summary{
-  summary: String!
+  _id: ID
+  summaryText: String!
   createdAt: String 
   }
 
@@ -30,18 +25,19 @@ const typeDefs = gql`
   }
 
   type Query {
+    users: [User]
+    user(username: String!): User
     me: User
     getSummary(text: String!, sentnum: Int): SummaryApi
+    summaries(username: String): [Summary]
+    summary(summaryId: ID!): Summary
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addFolder(name: String!):User
-    addSummary(summary:String!):Folder
+    addSummary(summaryText:String!): Summary
   }
- 
-
 `;
 
 module.exports = typeDefs;
