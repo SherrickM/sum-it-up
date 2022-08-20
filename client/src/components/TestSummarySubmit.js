@@ -3,18 +3,8 @@ import summation from './summationsymble.png'
 const axios = require('axios').default;
 require('dotenv').config()
 
-// import { useMutation } from "@apollo/client";
-// import { LOGIN_USER } from "../../utils/mutations";
-// import Auth from "../../utils/auth";
-// import { useNavigate } from "react-router-dom";
-// import { useUser } from "../../context/UserContext";
-// import reducer from "../../context/reducers";
 
 const TextSummarySubmit = () => {
-  // const [login, { error, data }] = useMutation(LOGIN_USER);
-  // let navigate = useNavigate();
-  // const initialState = useUser();
-  // const [state, dispatch] = useReducer(reducer, initialState);
 
   const [formState, setFormState] = useState("");
   const [summarizedState, setsummarizedState] = useState();
@@ -40,20 +30,15 @@ const TextSummarySubmit = () => {
       
       var r = await axios.request(options).then(function (response) {
         console.log(response.data);
+        setsummarizedState(response.data)
       });
     }
     catch(e)
     {
       console.error(e);
-
     }
   };
 
-  // const result = await login({
-  //   variables: { ...formState },
-  // });
-  // console.log(result);
-  // Auth.login(dispatch, result.data.login.token, result.data, navigate);
   return (
     <form onSubmit={onFormSubmit}>
       <div class="main-area-header">
