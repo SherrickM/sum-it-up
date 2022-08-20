@@ -1,13 +1,21 @@
-import React, { useState, useReducer } from "react";
+import React, { useState } from "react";
+import { useQuery } from '@apollo/client';
 import summation from './summationsymble.png'
+import { QUERY_GET_SUMMARY } from '../utils/queries'
+
+console.log(useQuery)
+
 const axios = require('axios').default;
 require('dotenv').config()
 
 
 const TextSummarySubmit = () => {
 
-  const [formState, setFormState] = useState("");
+  const [formState, setFormState] = useState("test");
   const [summarizedState, setsummarizedState] = useState();
+  const { loading, error, data } = useQuery(QUERY_GET_SUMMARY, {
+    variables: {"text": "this is a sentence" , "sentnum":"1"}
+  });
 
   const handleChange = (event) => {
     const value = event.target.value;
@@ -28,10 +36,10 @@ const TextSummarySubmit = () => {
         }
       };
       
-      var r = await axios.request(options).then(function (response) {
-        console.log(response.data);
-        setsummarizedState(response.data)
-      });
+      // var r = await axios.request(options).then(function (response) {
+      //   console.log(response.data);
+      //   setsummarizedState(response.data)
+      // });
     }
     catch(e)
     {
