@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 
 const sumSchema = new Schema(
   {
-    summary: {
+    summaryText: {
       type: String,
       required: true,
       unique: true,
@@ -13,15 +13,9 @@ const sumSchema = new Schema(
       default: Date.now,
       // get: timestamp =>
     }
-  },
-  {
-    toJSON: {
-      getters: true,
-    },
-    id: false
   }
 );
 
-const Summary = model("Summary", sumSchema)
+const Summary = model('Summary', sumSchema)
 
 module.exports = Summary;
