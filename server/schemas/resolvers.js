@@ -85,6 +85,11 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    getSummary: async (_, data) => {
+      let {text, sentnum} = data;
+      var r = await getAzSummary(text, sentnum);
+      return {sentences:r};
+    },
   },
 
   Mutation: {
