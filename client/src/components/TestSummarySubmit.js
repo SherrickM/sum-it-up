@@ -13,9 +13,9 @@ const TextSummarySubmit = () => {
 
   const [formState, setFormState] = useState("test");
   const [summarizedState, setsummarizedState] = useState();
-  const { loading, error, data } = useQuery(QUERY_GET_SUMMARY, {
-    variables: {"text": "this is a sentence" , "sentnum":"1"}
-  });
+  // const { loading, error, data } = useQuery(QUERY_GET_SUMMARY, {
+  //   variables: {"text": "this is a sentence" , "sentnum":"1"}
+  // });
 
   const handleChange = (event) => {
     const value = event.target.value;
