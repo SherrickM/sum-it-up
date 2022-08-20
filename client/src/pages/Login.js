@@ -57,48 +57,7 @@ const Login = (_props) => {
     };
 
     return (
-        // <Grid container justify="center">
-        //     <Box component="form" className={classes.form} onSubmit={handleFormSubmit}>
-
-        //         <InputField
-        //             fullWidth={true}
-        //             label="Email"
-        //             variant="outlined"
-        //             required
-        //             name='email'
-        //             type='email'
-        //             value={formState.email}
-        //             onChange={handleChange}
-        //             inputProps={{ className: classes.input }}
-        //             className={classes.field}
-        //         />
-        //         <InputField
-        //             fullWidth={true}
-        //             label="Password"
-        //             name='password'
-        //             required
-        //             variant="outlined"
-        //             value={formState.password}
-        //             onChange={handleChange}
-        //             inputProps={{ className: classes.input }}
-        //         />
-        //         <Button
-        //             variant="outlined"
-        //             fullWidth={true}
-        //             endIcon={<DoubleArrowIcon />}
-        //             type="submit"
-        //             className={classes.button}>
-        //             Login
-        //         </Button>
-        //     </Box>
-        //     <Snackbar open={open} autoHideDuration={6000} onClose={() => setOpen(false)} className={classes.alertbox}>
-        //         <Alert onClose={() => setOpen(false)} severity={severity} className={classes.alertbox}>
-        //             {error && alertMsg}
-        //         </Alert>
-        //     </Snackbar>
-            
-
-        // </Grid>
+      
         <>
         
         {/* Section: Design Block */}
