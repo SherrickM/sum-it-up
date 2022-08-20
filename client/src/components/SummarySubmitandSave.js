@@ -41,7 +41,7 @@ const TextSummarySubmit = () => {
         headers: { 'Content-Type': 'application/json' },
         data: {
           text: formState,
-          sentnum: sentenceNum
+          sentnum: parseInt(sentenceNum),
         }
       };
 
@@ -83,7 +83,7 @@ const TextSummarySubmit = () => {
                     </div>
 
                     <div class="search-wrapper mt-1 file-catagory" >
-                      <input class="input" type="text" name="sentenceNum" value={sentenceNum.sentenceNum} onChange={handleInputChange} placeholder="Number of sentences e.g. 3 or 5. Default is 1" />
+                      <input class="input" type="number" name="sentenceNum" value={sentenceNum.sentenceNum} onChange={handleInputChange} placeholder="Number of sentences e.g. 3 or 5. Default is 1" />
                     </div>
 
                     <button type="submit" class="btn btn-secondary m-2 submit_for_summery">Summarize!</button>
