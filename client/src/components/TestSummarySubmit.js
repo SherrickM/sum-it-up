@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import summation from './summationsymble.png'
 import { QUERY_GET_SUMMARY } from '../utils/queries'
 
-console.log(useQuery)
+// console.log(useQuery)
 
 const axios = require('axios').default;
 require('dotenv').config()
