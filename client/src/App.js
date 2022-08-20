@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
+import Summary from './pages/summary';
 import AuthService from './utils/auth';
 
 
@@ -37,6 +38,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           {loggedIn && <Route exact path="/profile" component={Profile} />  }
+          {loggedIn && <Route exact path="/summary" component={Summary} />  }
           <Route component={NoMatch} />
         </Switch>
       </Router>
