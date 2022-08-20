@@ -17,7 +17,7 @@ export const QUERY_USER = gql`
 
 export const QUERY_SUMMARIES = gql`
   query getSummaries {
-    thoughts {
+    summaries {
       _id
       summaryText
       createdAt
