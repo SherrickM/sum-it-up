@@ -1,1 +1,51 @@
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
+
+export const QUERY_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      email
+      summaries {
+        _id
+        summaryText
+        createdAt
+      }
+    }
+  }
+`;
+
+export const QUERY_SUMMARIES = gql`
+  query getSummaries {
+    thoughts {
+      _id
+      summaryText
+      createdAt
+    }
+  }
+`;
+
+export const QUERY_SINGLE_SUMMARY = gql`
+  query getSingleSummary($summaryId: ID!) {
+    summary(summaryId: $summaryId) {
+      _id
+      summaryText
+      createdAt
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      username
+      email
+      summaries {
+        _id
+        summaryText
+        createdAt
+      }
+    }
+  }
+`;

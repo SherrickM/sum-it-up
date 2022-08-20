@@ -1,6 +1,6 @@
 const User = require('./User');
-const Folder = require('./Folder');
+//const Folder = require('./Folder');
 const Summary = require('./Summary')
 
 
-module.exports = { User , Folder, Summary };
+module.exports = { User , Summary };
