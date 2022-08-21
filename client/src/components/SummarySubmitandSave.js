@@ -78,15 +78,15 @@ const TextSummarySubmit = () => {
                 <div className="video-info-text">
                   <form className="section-part left" onSubmit={onFormSubmit}>
                     Add Discription Of The Summary
-                    <div className="search-wrapper mt-3 file-name" >
-                      <input className="input" type="text" name="text" value={formState.text} onChange={handleChange} placeholder="Paste Text to Summarize here" />
+                    <div className="search-wrapper mt-3 file-name" id="summary-input-area">
+                      <textarea rows="20" cols="50" className="input" type="text" name="text" value={formState.text} onChange={handleChange} placeholder="Paste Text to Summarize here" />
                     </div>
 
-                    <div class="search-wrapper mt-1 file-catagory" >
+                    <div class="search-wrapper mt-1 file-catagory" id="summary-sentance-num">
                       <input class="input" type="number" name="sentenceNum" value={sentenceNum.sentenceNum} onChange={handleInputChange} placeholder="Number of sentences e.g. 3 or 5. Default is 1" />
                     </div>
 
-                    <button type="submit" class="btn btn-secondary m-2 submit_for_summery">Summarize!</button>
+                    <button type="submit" class="btn btn-secondary btn-main m-2 submit_for_summery">Summarize!</button>
 
 
                   </form>
@@ -115,13 +115,13 @@ const TextSummarySubmit = () => {
               <li className="files-table-row"> Summary Three</li>
             </ol>
             <form>
-              <div className="search-wrapper mt-3 file-name" >
+              <div className="search-wrapper mt-3 file-name mb-5" >
                 <input className="input" type="text" name="project" value={formState.project} onChange={handleChange} placeholder="Name of Project e.g. Climate Change" />
               </div>
-              <div className="search-wrapper mt-1 file-catagory" >
+              <div className="search-wrapper mt-1 file-catagory mb-5">
                 <input className="input" type="text" placeholder="Catagory e.g. Science" />
               </div>
-              <button type="save" class="btn btn-secondary submit_for_summery">Save summary!</button>
+              <button type="save" class="btn btn-secondary btn-main submit_for_summery">Save summary!</button>
           
           </form>
           </div>
