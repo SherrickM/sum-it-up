@@ -35,15 +35,13 @@ function Profile() {
         <h1 className="section-header">Quick Access</h1>
         <div className="access-links" >
           <div className="access-link-wrapper">
-            <div className="access-icon" >
-              <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="feather feather-image">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <polyline points="21 15 16 10 5 21" />
-              </svg>
-            </div>
+            
 
-            <a className="access-text" href="/summary">Summaries</a>
+            <a className="access-text" href="/summary">
+            <div className="access-icon" >
+              <i class="fa-regular fa-comment-dots"></i>
+            </div>
+              Summaries</a>
           </div>
           
           
