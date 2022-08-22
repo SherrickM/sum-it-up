@@ -75,7 +75,7 @@ const TextSummarySubmitFront= () => {
                     <button type="button" onClick={onFormSubmit} class="btn btn-secondary btn-main m-2 submit_for_summery">Summarize!</button>
 
 
-                  </form>
+                  </form>-m 
                 </div>
 
               </div>
