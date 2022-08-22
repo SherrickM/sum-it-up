@@ -2,6 +2,8 @@ import React, { useState, useReducer } from "react";
 import summation from './summationsymble.png'
 import { useQuery, useMutation } from '@apollo/client';
 import { ADD_SUMMARY } from "../utils/mutations";
+import Auth from '../utils/auth';
+
 
 const axios = require('axios').default;
 require('dotenv').config()
@@ -12,7 +14,6 @@ require('dotenv').config()
 // import { useNavigate } from "react-router-dom";
 // import { useUser } from "../../context/UserContext";
 // import reducer from "../../context/reducers";
-
 const TextSummarySubmit = () => {
   // const [login, { error, data }] = useMutation(LOGIN_USER);
   // let navigate = useNavigate();
@@ -23,17 +24,8 @@ const TextSummarySubmit = () => {
   const [summarizedState, setsummarizedState] = useState("");
   const [sentenceNum, setsentenceNum] = useState(1)
 
-  function Summarymutation (summary) {
-    const [ADD_SUMMARY, { data, loading, error }] = useMutation(ADD_SUMMARY);
-    try {
-      const { data } = ADD_SUMMARY({
-        variables: { ...summarizedState },
-      });
-    } catch (err) {
-      console.error(err);
-    }
+  // const [addSummary, { data, loading, error }] = useMutation(ADD_SUMMARY);
 
-  }
   
 
   const handleChange = (event) => {
@@ -45,11 +37,23 @@ const TextSummarySubmit = () => {
     const value = event.target.value;
     setsentenceNum(value);
   };
-  const handleSaveSummary =(event) => {
+  const handleSaveSummary =async(event) => {
 
-    event.preventDefault();
-    Summarymutation(summarizedState);
-    
+    // event.preventDefault();
+
+    // try {
+    //   const { data } = await addSummary({
+    //     variables: {
+    //       user:Auth.getProfile().data.username,
+    //       summarizedState,
+          
+    //     },
+    //   });
+
+    // } catch (err) {
+    //   console.error(err);
+    // }
+
     // const summary = summarizedState;
     // console.log(summary);
     // ADD_SUMMARY({ variables: { summaryText: summary } });
