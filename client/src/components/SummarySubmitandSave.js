@@ -1,4 +1,6 @@
 import React, { useState, useReducer } from "react";
+import { useQuery } from '@apollo/client';
+import { QUERY_GET_SUMMARY } from '../utils/queries'
 import summation from './summationsymble.png'
 const axios = require('axios').default;
 require('dotenv').config()
@@ -19,6 +21,9 @@ const TextSummarySubmit = () => {
   const [formState, setFormState] = useState("");
   const [summarizedState, setsummarizedState] = useState();
   const [sentenceNum, setsentenceNum] = useState(1)
+  const { loading, error, data } = useQuery(QUERY_GET_SUMMARY, {
+    variables: {"text": formState , "sentnum":sentenceNum}
+  });
 
   const handleChange = (event) => {
     const value = event.target.value;
@@ -32,27 +37,30 @@ const TextSummarySubmit = () => {
 
 
   const onFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState);
-    try {
-      var options = {
-        method: 'POST',
-        url: process.env.REACT_APP_APIURL + '/api/sumapi',
-        headers: { 'Content-Type': 'application/json' },
-        data: {
-          text: formState,
-          sentnum: parseInt(sentenceNum),
-        }
-      };
+    // event.preventDefault();
+    // console.log(formState);
+    // try {
+    //   // const { loading, error, data } = useQuery(QUERY_GET_SUMMARY, {
+    //   //   variables: {"text": formState , "sentnum":sentenceNum}
+    //   // });
+    //   // var options = {
+    //   //   method: 'POST',
+    //   //   url: process.env.REACT_APP_APIURL + '/api/sumapi',
+    //   //   headers: { 'Content-Type': 'application/json' },
+    //   //   data: {
+    //   //     text: formState,
+    //   //     sentnum: parseInt(sentenceNum),
+    //   //   }
+    //   // };
 
-      var r = await axios.request(options).then(function (response) {
-        console.log(response.data);
-      });
-    }
-    catch (e) {
-      console.error(e);
+    //   // var r = await axios.request(options).then(function (response) {
+    //   //   console.log(response.data);
+    //   }
+    
+    // catch (e) {
+    //   console.error(e);
 
-    }
+    // }
   };
 
   // const result = await login({
