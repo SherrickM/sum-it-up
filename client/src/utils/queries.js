@@ -49,3 +49,12 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_GET_SUMMARY = gql`
+    query getSummary($text: String!, $sentnum: Int) {
+        getSummary(text: $text, sentnum: $sentnum) {
+        sentences
+        }
+    }
+`;
+

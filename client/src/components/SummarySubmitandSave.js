@@ -1,4 +1,7 @@
 import React, { useState, useReducer } from "react";
+import { useQuery } from '@apollo/client';
+import { QUERY_GET_SUMMARY } from '../utils/queries'
+
 import summation from './summationsymble.png'
 import { useMutation } from '@apollo/client';
 import { ADD_SUMMARY, LOGIN_USER } from "../utils/mutations";
@@ -24,6 +27,7 @@ const TextSummarySubmit = () => {
   const [formState, setFormState] = useState("");
   const [summarizedState, setsummarizedState] = useState("");
   const [sentenceNum, setsentenceNum] = useState(1)
+
 
 
   const handleChange = (event) => {

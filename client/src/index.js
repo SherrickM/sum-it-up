@@ -6,4 +6,4 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style/sidebar.css'
 
-ReactDOM.render(<Router><App /></Router>, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
