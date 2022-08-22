@@ -39,6 +39,7 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/signup" element={<Signup/>} />
           {loggedIn && <Route exact path="/profile" element={<Profile/>} />  }
+          {loggedIn && <Route exact path="/summary" element={<Summary/>} />  }
           <Route element={<NoMatch/>} />
         </Routes>
       </Router>
