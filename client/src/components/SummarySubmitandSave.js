@@ -1,5 +1,8 @@
 import React, { useState, useReducer } from "react";
 import summation from './summationsymble.png'
+import { useQuery, useMutation } from '@apollo/client';
+import { ADD_SUMMARY } from "../utils/mutations";
+
 const axios = require('axios').default;
 require('dotenv').config()
 
@@ -17,8 +20,21 @@ const TextSummarySubmit = () => {
   // const [state, dispatch] = useReducer(reducer, initialState);
 
   const [formState, setFormState] = useState("");
-  const [summarizedState, setsummarizedState] = useState();
+  const [summarizedState, setsummarizedState] = useState("");
   const [sentenceNum, setsentenceNum] = useState(1)
+
+  function Summarymutation (summary) {
+    const [ADD_SUMMARY, { data, loading, error }] = useMutation(ADD_SUMMARY);
+    try {
+      const { data } = ADD_SUMMARY({
+        variables: { ...summarizedState },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+
+  }
+  
 
   const handleChange = (event) => {
     const value = event.target.value;
@@ -28,6 +44,16 @@ const TextSummarySubmit = () => {
   const handleInputChange = (event) => {
     const value = event.target.value;
     setsentenceNum(value);
+  };
+  const handleSaveSummary =(event) => {
+
+    event.preventDefault();
+    Summarymutation(summarizedState);
+    
+    // const summary = summarizedState;
+    // console.log(summary);
+    // ADD_SUMMARY({ variables: { summaryText: summary } });
+
   };
 
 
@@ -46,7 +72,11 @@ const TextSummarySubmit = () => {
       };
 
       var r = await axios.request(options).then(function (response) {
-        console.log(response.data);
+        console.log(response.data.sentences);
+        setsummarizedState(response.data.sentences);
+        console.log(summarizedState);
+
+
       });
     }
     catch (e) {
@@ -86,7 +116,7 @@ const TextSummarySubmit = () => {
                       <input class="input" type="number" name="sentenceNum" value={sentenceNum.sentenceNum} onChange={handleInputChange} placeholder="Number of sentences e.g. 3 or 5. Default is 1" />
                     </div>
 
-                    <button type="submit" class="btn btn-secondary btn-main m-2 submit_for_summery">Summarize!</button>
+                    <button  type="submit" class="btn btn-secondary btn-main m-2 submit_for_summery">Summarize!</button>
 
 
                   </form>
@@ -121,7 +151,7 @@ const TextSummarySubmit = () => {
               <div className="search-wrapper mt-1 file-catagory mb-5">
                 <input className="input" type="text" placeholder="Catagory e.g. Science" />
               </div>
-              <button type="save" class="btn btn-secondary btn-main submit_for_summery">Save summary!</button>
+              <button onClick={handleSaveSummary} type="save" class="btn btn-secondary btn-main submit_for_summery">Save summary!</button>
           
           </form>
           </div>
