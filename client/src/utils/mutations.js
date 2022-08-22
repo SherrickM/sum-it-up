@@ -27,6 +27,7 @@ export const ADD_USER = gql`
 export const ADD_SUMMARY = gql`
   mutation addSummary($summaryText: String!) {
     addSummary(summaryText: $summaryText) {
+      token
       _id
       summaryText
       createdAt
