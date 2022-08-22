@@ -14,7 +14,7 @@ const TextSummarySubmit = () => {
   const [formState, setFormState] = useState("test");
   const [summarizedState, setsummarizedState] = useState();
   const { loading, error, data } = useQuery(QUERY_GET_SUMMARY, {
-    variables: {"text": "this is a sentence" , "sentnum":"1"}
+    variables: {"text": formState , "sentnum":1}
   });
 
   const handleChange = (event) => {
@@ -26,15 +26,16 @@ const TextSummarySubmit = () => {
     event.preventDefault();
     console.log(formState);
     try {
-      var options = {
-        method: 'POST',
-        url: process.env.REACT_APP_APIURL + '/api/sumapi',
-        headers: {'Content-Type': 'application/json'},
-        data: {
-          text: formState,
-          sentnum: 1
-        }
-      };
+      
+      // var options = {
+      //   method: 'POST',
+      //   url: process.env.REACT_APP_APIURL + '/api/sumapi',
+      //   headers: {'Content-Type': 'application/json'},
+      //   data: {
+      //     text: formState,
+      //     sentnum: 1
+      //   }
+      // };
       
       // var r = await axios.request(options).then(function (response) {
       //   console.log(response.data);

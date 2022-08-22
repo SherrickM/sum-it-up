@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import MuiAlert from '@material-ui/lab/Alert';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
 

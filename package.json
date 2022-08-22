@@ -25,11 +25,5 @@
   "homepage": "https://github.com/SherrickM/sum-it-up#readme",
   "devDependencies": {
     "concurrently": "^6.2.0"
-  },
-  "dependencies": {
-    "apollo-server": "^3.10.1",
-    "dotenv": "^10.0.0",
-    "graphql": "^16.6.0",
-    "if-env": "^1.0.4"
   }
 }
