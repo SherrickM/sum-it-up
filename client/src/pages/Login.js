@@ -57,52 +57,11 @@ const Login = (_props) => {
     };
 
     return (
-        // <Grid container justify="center">
-        //     <Box component="form" className={classes.form} onSubmit={handleFormSubmit}>
-
-        //         <InputField
-        //             fullWidth={true}
-        //             label="Email"
-        //             variant="outlined"
-        //             required
-        //             name='email'
-        //             type='email'
-        //             value={formState.email}
-        //             onChange={handleChange}
-        //             inputProps={{ className: classes.input }}
-        //             className={classes.field}
-        //         />
-        //         <InputField
-        //             fullWidth={true}
-        //             label="Password"
-        //             name='password'
-        //             required
-        //             variant="outlined"
-        //             value={formState.password}
-        //             onChange={handleChange}
-        //             inputProps={{ className: classes.input }}
-        //         />
-        //         <Button
-        //             variant="outlined"
-        //             fullWidth={true}
-        //             endIcon={<DoubleArrowIcon />}
-        //             type="submit"
-        //             className={classes.button}>
-        //             Login
-        //         </Button>
-        //     </Box>
-        //     <Snackbar open={open} autoHideDuration={6000} onClose={() => setOpen(false)} className={classes.alertbox}>
-        //         <Alert onClose={() => setOpen(false)} severity={severity} className={classes.alertbox}>
-        //             {error && alertMsg}
-        //         </Alert>
-        //     </Snackbar>
-            
-
-        // </Grid>
+      
         <>
         
         {/* Section: Design Block */}
-        <section className="text-center text-lg-start">
+        <section className="text-center text-lg-start login-screen">
                 <style
                     dangerouslySetInnerHTML={{
                         __html:
@@ -121,7 +80,7 @@ const Login = (_props) => {
                                 }}
                             >
                                 <div className="card-body p-5 shadow-5 text-center">
-                                    <h2 className="fw-bold mb-5">Sign In</h2>
+                                    <h2 className="fw-bold mb-5 text-purple">Sign In</h2>
                                     <form onSubmit={handleFormSubmit}>
                                         
                                         {/* Email input */}
@@ -134,7 +93,7 @@ const Login = (_props) => {
                                                 name="email"
                                                 value={formState.email}
                                             />
-                                            <label className="form-label" htmlFor="form3Example3">
+                                            <label className="form-label text-purple" htmlFor="form3Example3">
                                                 Email address
                                             </label>
                                         </div>
@@ -148,7 +107,7 @@ const Login = (_props) => {
                                                 name="password"
                                                 value={formState.password}
                                             />
-                                            <label className="form-label" htmlFor="form3Example4">
+                                            <label className="form-label text-purple" htmlFor="form3Example4">
                                                 Password
                                             </label>
                                         </div>
@@ -156,7 +115,7 @@ const Login = (_props) => {
                                         {/* Submit button */}
                                         <button
                                             type="submit"
-                                            className="btn btn-primary btn-block mb-4"
+                                            className="btn btn-primary btn-main btn-block mb-4"
                                             
                                         >
                                             Sign In

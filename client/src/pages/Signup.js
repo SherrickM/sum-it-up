@@ -118,7 +118,7 @@ const Signup = () => {
         // </Grid>
         <>
             {/* Section: Design Block */}
-            <section className="text-center text-lg-start">
+            <section className="text-center text-lg-start signup-screen">
                 <style
                     dangerouslySetInnerHTML={{
                         __html:
@@ -137,7 +137,7 @@ const Signup = () => {
                                 }}
                             >
                                 <div className="card-body p-5 shadow-5 text-center">
-                                    <h2 className="fw-bold mb-5">Sign up now</h2>
+                                    <h2 className="fw-bold mb-5 text-purple">Sign up now</h2>
                                     <form onSubmit={handleFormSubmit}>
                                         {/* 2 column grid layout with text inputs for the first and last names */}
                                         <div className="row">
@@ -151,7 +151,7 @@ const Signup = () => {
                                                         value={formState.username}
                                                         name="username"
                                                     />
-                                                    <label className="form-label" htmlFor="username">
+                                                    <label className="form-label text-purple" htmlFor="username">
                                                         User Name
                                                     </label>
                                                 </div>
@@ -168,7 +168,7 @@ const Signup = () => {
                                                 value={formState.email}
                                                 name="email"
                                             />
-                                            <label className="form-label" htmlFor="email">
+                                            <label className="form-label text-purple" htmlFor="email">
                                                 Email address
                                             </label>
                                         </div>
@@ -182,32 +182,19 @@ const Signup = () => {
                                                 value={formState.password}
                                                 name="password"
                                             />
-                                            <label className="form-label" htmlFor="password">
+                                            <label className="form-label text-purple" htmlFor="password">
                                                 Password
                                             </label>
-                                        </div>
-                                        {/* Checkbox */}
-                                        <div className="form-check d-flex justify-content-center mb-4">
-                                            <input
-                                                className="form-check-input me-2"
-                                                type="checkbox"
-                                                defaultValue=""
-                                                id="form2Example33"
-                                                defaultChecked=""
-                                            />
-                                            <label className="form-check-label" htmlFor="form2Example33">
-                                                Subscribe to our newsletter
-                                            </label>
-                                        </div>
+                                        </div>                                        
                                         {/* Submit button */}
                                         <button
                                             type="submit"
-                                            className="btn btn-primary btn-block mb-4"
+                                            className="btn btn-primary btn-main btn-block mb-4"
                                         >
                                             Sign up
                                         </button>
                                         {/* Register buttons */}
-                                        <div className="text-center">
+                                        <div className="text-center text-purple">
                                             <p>or sign up with:</p>
                                             <button
                                                 type="button"

@@ -14,6 +14,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
+import Summary from './pages/summary';
 import AuthService from './utils/auth';
 const client = new ApolloClient({
   request: operation => {

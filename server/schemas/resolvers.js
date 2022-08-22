@@ -1,9 +1,10 @@
 require('dotenv').config()
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Folder } = require("../models");
+const { User, Summary} = require("../models");
 const fetch = require("node-fetch");
 const { signToken } = require("../utils/auth");
 const { getAzSummary } = require('../utils/summaryUtils.js')
+
 
 const resolvers = {
   Query: {
