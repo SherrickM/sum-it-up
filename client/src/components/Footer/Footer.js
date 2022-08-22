@@ -12,8 +12,10 @@ const Footer = () => {
       <footer>
         <div className="container">
           <div className="row justify-content-start">
-            <div className="col-3">
+            <div className="col-3 left-col">
             <a className="app-name" href="/"><img className="primary-logo" src={Logo} alt="Sum it up!" /></a>
+            <br />
+            <a href="https://github.com/SherrickM/polite-mail" target="_blank"><i className="fab fa-github" /> Project Repo</a>
             </div>
             <div className="col-9 right-col">
               <h3 className="">Contributors</h3>
