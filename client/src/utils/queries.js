@@ -57,3 +57,4 @@ export const QUERY_GET_SUMMARY = gql`
         }
     }
 `;
+
