@@ -16,7 +16,7 @@ const SummaryResult = (attr) => {
     let summary = data.getSummary.sentences;
     if (summary) {
       return (
-        <textarea name="" id="" cols="30" rows="10">
+        <textarea name="" id="" cols="100" rows="10">
           { summary }
         </textarea>
       );
@@ -25,7 +25,7 @@ const SummaryResult = (attr) => {
     }
   }
   return(
-    <span>Nothing</span>
+    <span>Summary is being compiled</span>
 
   )
 };

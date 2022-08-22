@@ -96,22 +96,19 @@ const TextSummarySubmit = () => {
           <div className="files-table-header">
 
             <ol>
-              <li className="files-table-row"> Summary one</li>
-              <li className="files-table-row"> Summary two</li>
-              <li className="files-table-row"> Summary Three</li>
+              <li className="files-table-row"> { (sumarizeMe) ? <SummaryResults  text={sumarizeMe} sentnum={sentenceNum} /> : null}</li>
+              
             </ol>
             <form>
               <div className="search-wrapper mt-3 file-name mb-5" >
                 <input className="input" type="text" name="project" value={formState.project} onChange={handleChange} placeholder="Name of Project e.g. Climate Change" />
               </div>
-              <div className="search-wrapper mt-1 file-catagory mb-5">
-                <input className="input" type="text" placeholder="Catagory e.g. Science" />
-              </div>
+              
               <button type="save" class="btn btn-secondary btn-main submit_for_summery">Save summary!</button>
           
           </form>
           </div>
-          { (sumarizeMe) ? <SummaryResults  text={sumarizeMe} sentnum={sentenceNum} /> : null}
+          
 
           
           
