@@ -1,13 +1,21 @@
-import React, { useState, useReducer } from "react";
+import React, { useState } from "react";
+import { useQuery } from '@apollo/client';
 import summation from './summationsymble.png'
+import { QUERY_GET_SUMMARY } from '../utils/queries'
+
+// console.log(useQuery)
+
 const axios = require('axios').default;
 require('dotenv').config()
 
 
 const TextSummarySubmit = () => {
 
-  const [formState, setFormState] = useState("");
+  const [formState, setFormState] = useState("test");
   const [summarizedState, setsummarizedState] = useState();
+  const { loading, error, data } = useQuery(QUERY_GET_SUMMARY, {
+    variables: {"text": formState , "sentnum":1}
+  });
 
   const handleChange = (event) => {
     const value = event.target.value;
@@ -18,20 +26,21 @@ const TextSummarySubmit = () => {
     event.preventDefault();
     console.log(formState);
     try {
-      var options = {
-        method: 'POST',
-        url: process.env.REACT_APP_APIURL + '/api/sumapi',
-        headers: {'Content-Type': 'application/json'},
-        data: {
-          text: formState,
-          sentnum: 1
-        }
-      };
       
-      var r = await axios.request(options).then(function (response) {
-        console.log(response.data);
-        setsummarizedState(response.data)
-      });
+      // var options = {
+      //   method: 'POST',
+      //   url: process.env.REACT_APP_APIURL + '/api/sumapi',
+      //   headers: {'Content-Type': 'application/json'},
+      //   data: {
+      //     text: formState,
+      //     sentnum: 1
+      //   }
+      // };
+      
+      // var r = await axios.request(options).then(function (response) {
+      //   console.log(response.data);
+      //   setsummarizedState(response.data)
+      // });
     }
     catch(e)
     {

@@ -1,7 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ApolloProvider, useMutation } from '@apollo/react-hooks';
-import ApolloClient from 'apollo-boost';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
 import './App.css';
 import Home from './pages/Home';
 import Header from './components/Header/Header';
@@ -12,39 +16,34 @@ import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
 import Summary from './pages/summary';
 import AuthService from './utils/auth';
-
-
 const client = new ApolloClient({
   request: operation => {
     const token = localStorage.getItem('id_token');
-
     operation.setContext({
       headers: {
         authorization: token ? `Bearer ${token}` : ''
       }
     });
   },
-  uri: 'http://localhost:3001/graphql'
+  uri: 'http://localhost:3001/graphql',
+  cache: new InMemoryCache(),
 });
-
 function App() {
   const loggedIn = AuthService.loggedIn()
   return (
     <ApolloProvider client={client}>
       <Header />
       <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
-          {loggedIn && <Route exact path="/profile" component={Profile} />  }
-          {loggedIn && <Route exact path="/summary" component={Summary} />  }
-          <Route component={NoMatch} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/signup" element={<Signup/>} />
+          {loggedIn && <Route exact path="/profile" element={<Profile/>} />  }
+          <Route element={<NoMatch/>} />
+        </Routes>
       </Router>
       <Footer />
     </ApolloProvider>
   );
 }
-
 export default App;
