@@ -34,7 +34,7 @@ const TextSummarySubmit = () => {
   };
   const handleInputChange = (event) => {
     const value = event.target.value;
-    setsentenceNum(value);
+    setsentenceNum(parseInt(value));
   };
 
 
