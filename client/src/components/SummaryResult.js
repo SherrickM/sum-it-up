@@ -25,7 +25,17 @@ const SummaryResult = (attr) => {
     }
   }
   return(
-    <span>Summary is being compiled</span>
+    <div class="loading-container">
+      <div class="loader">
+        <div class="loading-bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </div>
 
   )
 };
