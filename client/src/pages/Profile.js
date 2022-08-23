@@ -8,10 +8,10 @@ function Profile() {
     <div className="left-area">
 
 
-    <a href="/profile" className="item-link active" id="pageLink">
+    <a title="Home screen" href="/profile" className="item-link active" id="pageLink">
       <i class="fa-solid fa-house-chimney"></i>
       </a>
-      <a href="/summary" className="item-link active" id="pageLink">
+      <a title="History" href="/summary" className="item-link active" id="pageLink">
         <i class="fa-solid fa-clock-rotate-left"></i>
       </a>
       
@@ -31,7 +31,7 @@ function Profile() {
           <div className="access-link-wrapper">
             
 
-            <a className="access-text" href="/summary">
+            <a title="View History" className="access-text" href="/summary">
             <div className="access-icon" >
               <i class="fa-regular fa-comment-dots"></i>
             </div>

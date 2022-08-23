@@ -251,6 +251,7 @@
   }
   .content-section-line {
     margin: 0 -8px;
+    padding: 20px 0 60px;
   }
   .section-part {
     flex-basis: 49%;
@@ -1094,5 +1095,8 @@ ul.contributors-list li a i {
 }
 
 .app-container .fa-solid {
+  font-size: 30px;
+}
+.logout-icon{
   font-size: 30px;
 }
