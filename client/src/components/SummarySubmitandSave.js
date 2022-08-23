@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import SummaryResults from "./SummaryResult"
-import { ADD_SUMMARY } from '../utils/mutations';
+
+
+
+
+require('dotenv').config()
+
+// import { useMutation } from "@apollo/client";
+// import { LOGIN_USER } from "../../utils/mutations";
+// import Auth from "../../utils/auth";
+// import { useNavigate } from "react-router-dom";
+// import { useUser } from "../../context/UserContext";
+// import reducer from "../../context/reducers";
+
 
 const TextSummarySubmit = () => {
 
