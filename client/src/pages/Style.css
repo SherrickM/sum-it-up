@@ -1092,3 +1092,7 @@ ul.contributors-list li a i {
     transform: rotateX(0) rotateY(0);
   }
 }
+
+.app-container .fa-solid {
+  font-size: 30px;
+}
