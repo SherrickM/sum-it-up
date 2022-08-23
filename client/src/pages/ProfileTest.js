@@ -2,21 +2,10 @@ import React from "react";
 import './Style.css'
 import UrlSummarySubmit from "../components/UrlSumarySubmit";
 import TextSummarySubmit from "../components/TestSummarySubmit";
-// import { FileUploader } from "react-drag-drop-files";
+
 
 const fileTypes = ["doc", "docx", "odt", "pdf", "rtf", "tex", "txt", "wpd"];
 
-// function DragDrop() {
-//   const [file, setFile] = useState(null);
-//   const handleChange = (file) => {
-//     setFile(file);
-//   };
-//   return (
-//     <FileUploader handleChange={handleChange} name="file" types={fileTypes} />
-//   );
-// }
-
-// export default DragDrop;
 
 
 function Profile (){
