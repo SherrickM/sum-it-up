@@ -1,8 +1,7 @@
 import React, { useState, useReducer } from "react";
 import SummaryResults from "./SummaryResult"
 
-import summation from './summationsymble.png'
-const axios = require('axios').default;
+
 require('dotenv').config()
 
 // import { useMutation } from "@apollo/client";
@@ -75,7 +74,7 @@ const TextSummarySubmitFront= () => {
                     <button type="button" onClick={onFormSubmit} class="btn btn-secondary btn-main m-2 submit_for_summery">Summarize!</button>
 
 
-                  </form>
+                  </form>-m 
                 </div>
 
               </div>
