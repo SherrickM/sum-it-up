@@ -1,9 +1,11 @@
-import React, { useState, useReducer } from "react";
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
 import SummaryResults from "./SummaryResult"
 import { useMutation } from '@apollo/client';
 
-import summation from './summationsymble.png'
-const axios = require('axios').default;
+
+
+
 require('dotenv').config()
 
 // import { useMutation } from "@apollo/client";
@@ -13,33 +15,40 @@ require('dotenv').config()
 // import { useUser } from "../../context/UserContext";
 // import reducer from "../../context/reducers";
 
+
 const TextSummarySubmit = () => {
-  // const [login, { error, data }] = useMutation(LOGIN_USER);
-  // let navigate = useNavigate();
-  // const initialState = useUser();
-  // const [state, dispatch] = useReducer(reducer, initialState);
 
   const [formState, setFormState] = useState("");
   const [summarizedState, setsummarizedState] = useState();
   const [sentenceNum, setsentenceNum] = useState(1)
   const [sumarizeMe, setSumarizeMe] = useState(null)
-  // const { loading, error, data } = useQuery(QUERY_GET_SUMMARY, {
-  //   variables: {"text": formState , "sentnum":sentenceNum}
-  // });
+
+  // Set up our mutation with an option to handle errors
+  // const [addSummary, { error }] = useMutation(ADD_SUMMARY);
 
   const handleChange = (event) => {
     const value = event.target.value;
     setFormState(value);
-    
   };
+
   const handleInputChange = (event) => {
     const value = event.target.value;
     setsentenceNum(parseInt(value));
   };
 
-  let results = null;
   const onFormSubmit = async (event) => {
-    setSumarizeMe(formState)
+    event.preventDefault();
+      setSumarizeMe(formState);
+      console.log(formState);
+    // On form submit, perform mutation and pass in form data object as arguments
+    // try {
+    //   const { data } = addSummary({
+    //     variables: { ...formState },
+    //   });
+    //   console.log(data)
+    // } catch (err) {
+    //   console.error(err);
+    // }
   };
 
   // mutation for saving summary to database
@@ -108,7 +117,7 @@ const TextSummarySubmit = () => {
                     </div>
 
                     <div class="search-wrapper mt-1 file-catagory" id="summary-sentance-num">
-                      <input class="input" type="number" name="sentenceNum" value={sentenceNum.sentenceNum} onChange={handleInputChange} placeholder="Number of sentences e.g. 3 or 5. Default is 1" min="1" />
+                      <input class="input" type="number" name="sentenceNum" value={sentenceNum.value} onChange={handleInputChange} placeholder="Number of sentences e.g. 3 or 5. Default is 1" min="1" />
                     </div>
 
                     <button type="button" onClick={onFormSubmit} class="btn btn-secondary btn-main m-2 submit_for_summery">Summarize!</button>
