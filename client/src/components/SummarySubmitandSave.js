@@ -1,5 +1,6 @@
 import React, { useState, useReducer } from "react";
 import SummaryResults from "./SummaryResult"
+import { useMutation } from '@apollo/client';
 
 import summation from './summationsymble.png'
 const axios = require('axios').default;
@@ -40,6 +41,44 @@ const TextSummarySubmit = () => {
   const onFormSubmit = async (event) => {
     setSumarizeMe(formState)
   };
+
+  // mutation for saving summary to database
+  // const [addSummary, { error }] = useMutation(ADD_SUMMARY, {
+  //   update(cache, { data: { addSummary } }) {
+  //     try {
+  //       const { summaries } = cache.readQuery({ query: QUERY_SUMMARIES });
+  //     } catch (e) {
+  //       console.error(e);
+  //     }
+  //     const { me } = cache.readQuery({ query: QUERY_ME });
+  //     cache.writeQuery({
+  //       query: QUERY_ME,
+  //       data: { me: { ...me, summaries: [...me.summaries, addSummary] } },
+  //     });
+  //   }
+  // });
+
+  // const handleSaveSummary = async (event) => {
+  //   event.preventDefault();
+
+  //   try {
+  //     const { data } = await addSummary({
+  //       variables: {
+  //         user: Auth.getProfile().data.username,
+  //         summarizedState,
+
+  //       },
+  //     });
+
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+
+  //   const summary = summarizedState;
+  //   console.log(summary);
+  //   ADD_SUMMARY({ variables: { summaryText: summary } });
+
+  // }
 
   // const result = await login({
   //   variables: { ...formState },

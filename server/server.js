@@ -12,14 +12,17 @@ const cors = require('cors');
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  cors: {
+    origin: "*"
+  },
   context: authMiddleware
 });
 
 
 
- app.use(cors({
-   origin: '*'
- }));
+//  app.use(cors({
+//    origin: '*'
+//  }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
