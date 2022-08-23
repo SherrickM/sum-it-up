@@ -58,20 +58,31 @@ const resolvers = {
 
       return { token, user };
     },
-    addSummary: async (parent, { summaryText }, context) => {
-      if (context.user) {
-        const summary = await Summary.create({
-          summaryText,
-        });
+    addSummary: async (parent, { summaryText, summaryName }, context) => {
+      // if (context.user) {
+        let s= {summaryText: summaryText, summaryName: summaryName};
+        let sm = {summary: s}
+        try
+        {
+  
+          const summary = await Summary.create({summaryText, summaryName });
+ 
+          // await User.findOneAndUpdate(
+          //   { _id: context.user._id },
+          //   { $addToSet: { summaries: summary } }
+          // );
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { summaries: summary._id } }
-        );
+          return summary;
 
-        return summary;
-      }
-      throw new AuthenticationError('You need to be logged in!');
+        }
+        catch(ex)
+        {
+          console.log(ex);
+          throw ex;
+        }
+        
+      // }
+      //throw new AuthenticationError('You need to be logged in!');
     },
   },
 };

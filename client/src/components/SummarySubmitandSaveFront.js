@@ -67,11 +67,11 @@ const TextSummarySubmitFront= () => {
                       <textarea rows="20" cols="50" className="input" type="text" name="text" value={formState.text} onChange={handleChange} placeholder="Paste Text to Summarize here" />
                     </div>
 
-                    <div class="search-wrapper mt-1 file-catagory" id="summary-sentance-num">
-                      <input class="input" type="number" name="sentenceNum" value={sentenceNum.sentenceNum} onChange={handleInputChange} placeholder="Number of sentences e.g. 3 or 5. Default is 1" min="1" />
+                    <div className="search-wrapper mt-1 file-catagory" id="summary-sentance-num">
+                      <input className="input" type="number" name="sentenceNum" value={sentenceNum.sentenceNum} onChange={handleInputChange} placeholder="Number of sentences e.g. 3 or 5. Default is 1" min="1" />
                     </div>
 
-                    <button type="button" onClick={onFormSubmit} class="btn btn-secondary btn-main m-2 submit_for_summery">Summarize!</button>
+                    <button type="button" onClick={onFormSubmit} className="btn btn-secondary btn-main m-2 submit_for_summery">Summarize!</button>
 
 
                   </form>-m 

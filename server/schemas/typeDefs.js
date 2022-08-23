@@ -14,9 +14,10 @@ const typeDefs = gql`
   }
 
   type Summary{
-  _id: ID
+  _id: ID!
   summaryText: String!
-  createdAt: String 
+  summaryName: String!
+  createdAt: String!
   }
 
   type Auth {
@@ -36,7 +37,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addSummary(username:String!, summaryText:String!): Summary
+    addSummary(summaryText:String!, summaryName:String): Summary
   }
 `;
 

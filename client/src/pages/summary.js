@@ -8,11 +8,11 @@ function Summary() {
         <div className="left-area">
 
             <a href="/profile" className="item-link active" id="pageLink">
-                <i class="fa-solid fa-house-chimney"></i>
+                <i className="fa-solid fa-house-chimney"></i>
             </a>
 
             <a href="summary" className="item-link active" id="pageLink">
-                <i class="fa-solid fa-clock-rotate-left"></i>
+                <i className="fa-solid fa-clock-rotate-left"></i>
             </a>
 
 

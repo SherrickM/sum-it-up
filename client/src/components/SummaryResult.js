@@ -25,14 +25,14 @@ const SummaryResult = (attr) => {
     }
   }
   return(
-    <div class="loading-container">
-      <div class="loader">
-        <div class="loading-bars">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
+    <div className="loading-container">
+      <div className="loader">
+        <div className="loading-bars">
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
         </div>
       </div>
     </div>

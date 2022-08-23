@@ -4,10 +4,7 @@ import TextSummarySubmitFront from "../components/SummarySubmitandSaveFront";
 
 export default function Home(){
   return (
-    <>
     <TextSummarySubmitFront/>
-    </>
- 
     
   );
 }
