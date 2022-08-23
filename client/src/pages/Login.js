@@ -9,9 +9,7 @@ import './Style.css'
 
 
 
-function Alert(props) {
-    return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+
 
 const Login = (_props) => {
 
