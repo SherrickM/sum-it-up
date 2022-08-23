@@ -23,7 +23,7 @@ const TextSummarySubmit = () => {
   const [sumarizeMe, setSumarizeMe] = useState(null)
 
   // Set up our mutation with an option to handle errors
-  const [addSummary, { error }] = useMutation(ADD_SUMMARY);
+  // const [addSummary, { error }] = useMutation(ADD_SUMMARY);
 
   const handleChange = (event) => {
     const value = event.target.value;
@@ -40,14 +40,14 @@ const TextSummarySubmit = () => {
       setSumarizeMe(formState);
       console.log(formState);
     // On form submit, perform mutation and pass in form data object as arguments
-    try {
-      const { data } = addSummary({
-        variables: { ...formState },
-      });
-      console.log(data)
-    } catch (err) {
-      console.error(err);
-    }
+    // try {
+    //   const { data } = addSummary({
+    //     variables: { ...formState },
+    //   });
+    //   console.log(data)
+    // } catch (err) {
+    //   console.error(err);
+    // }
   };
 
   return (
