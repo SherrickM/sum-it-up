@@ -16,6 +16,17 @@ import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
 import Summary from './pages/summary';
 import AuthService from './utils/auth';
+import { setContext } from '@apollo/client/link/context';
+const httplink = createHttpLink({uri:'/graphql'})
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
 const client = new ApolloClient({
   request: operation => {
     const token = localStorage.getItem('id_token');
@@ -25,8 +36,9 @@ const client = new ApolloClient({
       }
     });
   },
-  uri: 'http://localhost:3001/graphql',
+  link: authLink.concat(httplink),
   cache: new InMemoryCache(),
+  uri:'/graphql'
 });
 function App() {
   const loggedIn = AuthService.loggedIn()
@@ -36,9 +48,10 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/signup" element={<Signup/>} />
+          <Route  path="/login" element={<Login/>} />
+          <Route  path="/signup" element={<Signup/>} />
           {loggedIn && <Route exact path="/profile" element={<Profile/>} />  }
+          {loggedIn && <Route exact path="/summary" element={<Summary/>} />  }
           <Route element={<NoMatch/>} />
         </Routes>
       </Router>

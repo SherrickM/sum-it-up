@@ -8,17 +8,11 @@ function Summary() {
         <div className="left-area">
 
             <a href="/profile" className="item-link active" id="pageLink">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="feather feather-grid" viewBox="0 0 24 24">
-                    <defs />
-                    <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" />
-                </svg>
+                <i class="fa-solid fa-house-chimney"></i>
             </a>
 
-            <a href="summary" className="item-link" id="pageLink">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="feather feather-folder" viewBox="0 0 24 24">
-                    <defs />
-                    <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z" />
-                </svg>
+            <a href="summary" className="item-link active" id="pageLink">
+                <i class="fa-solid fa-clock-rotate-left"></i>
             </a>
 
 

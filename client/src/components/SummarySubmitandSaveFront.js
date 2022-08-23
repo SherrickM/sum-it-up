@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import React, { useState, useReducer } from "react";
 import SummaryResults from "./SummaryResult"
-
-
 
 
 require('dotenv').config()
@@ -14,43 +11,40 @@ require('dotenv').config()
 // import { useUser } from "../../context/UserContext";
 // import reducer from "../../context/reducers";
 
-
-const TextSummarySubmit = () => {
+const TextSummarySubmitFront= () => {
+  // const [login, { error, data }] = useMutation(LOGIN_USER);
+  // let navigate = useNavigate();
+  // const initialState = useUser();
+  // const [state, dispatch] = useReducer(reducer, initialState);
 
   const [formState, setFormState] = useState("");
   const [summarizedState, setsummarizedState] = useState();
   const [sentenceNum, setsentenceNum] = useState(1)
   const [sumarizeMe, setSumarizeMe] = useState(null)
-
-
-  // Set up our mutation with an option to handle errors
-  // const [addSummary, { error }] = useMutation(ADD_SUMMARY);
+  // const { loading, error, data } = useQuery(QUERY_GET_SUMMARY, {
+  //   variables: {"text": formState , "sentnum":sentenceNum}
+  // });
 
   const handleChange = (event) => {
     const value = event.target.value;
     setFormState(value);
+    
   };
-
   const handleInputChange = (event) => {
     const value = event.target.value;
     setsentenceNum(parseInt(value));
   };
 
+  let results = null;
   const onFormSubmit = async (event) => {
-    event.preventDefault();
-      setSumarizeMe(formState);
-      console.log(formState);
-    // On form submit, perform mutation and pass in form data object as arguments
-    // try {
-    //   const { data } = addSummary({
-    //     variables: { ...formState },
-    //   });
-    //   console.log(data)
-    // } catch (err) {
-    //   console.error(err);
-    // }
+    setSumarizeMe(formState)
   };
 
+  // const result = await login({
+  //   variables: { ...formState },
+  // });
+  // console.log(result);
+  // Auth.login(dispatch, result.data.login.token, result.data, navigate);
   return (
     
 
@@ -74,13 +68,13 @@ const TextSummarySubmit = () => {
                     </div>
 
                     <div class="search-wrapper mt-1 file-catagory" id="summary-sentance-num">
-                      <input class="input" type="number" name="sentenceNum" value={sentenceNum.value} onChange={handleInputChange} placeholder="Number of sentences e.g. 3 or 5. Default is 1" min="1" />
+                      <input class="input" type="number" name="sentenceNum" value={sentenceNum.sentenceNum} onChange={handleInputChange} placeholder="Number of sentences e.g. 3 or 5. Default is 1" min="1" />
                     </div>
 
                     <button type="button" onClick={onFormSubmit} class="btn btn-secondary btn-main m-2 submit_for_summery">Summarize!</button>
 
 
-                  </form>
+                  </form>-m 
                 </div>
 
               </div>
@@ -104,14 +98,7 @@ const TextSummarySubmit = () => {
               <li className="files-table-row"> { (sumarizeMe) ? <SummaryResults  text={sumarizeMe} sentnum={sentenceNum} /> : null}</li>
               
             </ol>
-            <form>
-              <div className="search-wrapper mt-3 file-name mb-5" >
-                <input className="input" type="text" name="project" value={formState.project} onChange={handleChange} placeholder="Name of Project e.g. Climate Change" />
-              </div>
-              
-              <button type="save" class="btn btn-secondary btn-main submit_for_summery">Save summary!</button>
-          
-          </form>
+           
           </div>
           
 
@@ -127,4 +114,4 @@ const TextSummarySubmit = () => {
   );
 };
 
-export default TextSummarySubmit;
+export default TextSummarySubmitFront;
