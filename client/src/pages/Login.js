@@ -4,7 +4,8 @@ import MuiAlert from '@material-ui/lab/Alert';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-import './Style.css'
+import './Style.css';
+import siticon from '../assets/images/sit-icon.png';
 
 
 
@@ -78,6 +79,7 @@ const Login = (_props) => {
                                 }}
                             >
                                 <div className="card-body p-5 shadow-5 text-center">
+                                <img className="primary-logo" src={siticon} alt="Sum it up!" />
                                     <h2 className="fw-bold mb-5 text-purple">Sign In</h2>
                                     <form onSubmit={handleFormSubmit}>
                                         
