@@ -25,12 +25,9 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_SUMMARY = gql`
-  mutation addSummary($summaryText: String!) {
-    addSummary(summaryText: $summaryText) {
-      token
+  mutation addSummary($summaryText:String!, $summaryName: String) {
+    addSummary(summaryText: $summaryText, summaryName: $summaryName) {
       _id
-      summaryText
-      createdAt
     }
   }
 `;
