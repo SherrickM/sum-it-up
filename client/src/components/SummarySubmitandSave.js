@@ -72,7 +72,7 @@ const TextSummarySubmit = () => {
 
     <section className="content-section">
       <div className="section-header-wrapper">
-        <h1 className="section-header">Add text to Summarize</h1>
+        <h1 className="section-header">Summerize below!</h1>
         <h1 className="section-header">Summary</h1>
         
       </div>
@@ -83,9 +83,10 @@ const TextSummarySubmit = () => {
               <div className="video-info">
                 <div className="video-info-text">
                   <form className="section-part left" onSubmit={onFormSubmit}>
-                    Add Discription Of The Summary
-                    <div className="search-wrapper mt-3 file-name" id="summary-input-area">
+
+                    <div className="search-wrapper mt-3 file-name profile-input" id="summary-input-area">
                       <textarea rows="20" cols="50" className="input" type="text" name="text" value={formState} onChange={handleChange} placeholder="Paste Text to Summarize here" />
+
                     </div>
 
                     <div class="search-wrapper mt-1 file-catagory" id="summary-sentance-num">
@@ -115,7 +116,7 @@ const TextSummarySubmit = () => {
 
           <div className="files-table-header">
 
-            <ol>
+            <ol className="sum-results-output">
               <li className="files-table-row"> { (sumarizeMe) ? <SummaryResults  text={sumarizeMe} sentnum={sentenceNum} /> : null}</li>
               
             </ol>

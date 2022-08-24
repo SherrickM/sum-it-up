@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import MuiAlert from '@material-ui/lab/Alert';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
+import siticon from '../assets/images/sit-icon.png';
 
 
 import Auth from '../utils/auth';
@@ -137,6 +138,7 @@ const Signup = () => {
                                 }}
                             >
                                 <div className="card-body p-5 shadow-5 text-center">
+                                    <img className="primary-logo" src={siticon} alt="Sum it up!" />
                                     <h2 className="fw-bold mb-5 text-purple">Sign up now</h2>
                                     <form onSubmit={handleFormSubmit}>
                                         {/* 2 column grid layout with text inputs for the first and last names */}
