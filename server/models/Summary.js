@@ -9,13 +9,13 @@ const sumSchema = new Schema(
       trim: true,
     },
     createDate: {
-      type: Date,
-      default: Date.now,
+      type: String,
+      default: Date.now(),
       // get: timestamp =>
     },
     username: {
       type: String,
-      required: true,
+      required: false,
       unique: true,
       trim: true
     },
