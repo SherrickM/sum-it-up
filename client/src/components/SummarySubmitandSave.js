@@ -85,11 +85,11 @@ const TextSummarySubmit = () => {
                   <form className="section-part left" onSubmit={onFormSubmit}>
                     Add Discription Of The Summary
                     <div className="search-wrapper mt-3 file-name" id="summary-input-area">
-                      <textarea rows="20" cols="50" className="input" type="text" name="text" value={formState.text} onChange={handleChange} placeholder="Paste Text to Summarize here" />
+                      <textarea rows="20" cols="50" className="input" type="text" name="text" value={formState} onChange={handleChange} placeholder="Paste Text to Summarize here" />
                     </div>
 
                     <div class="search-wrapper mt-1 file-catagory" id="summary-sentance-num">
-                      <input class="input" type="number" name="sentenceNum" value={sentenceNum.value} onChange={handleInputChange} placeholder="Number of sentences e.g. 3 or 5. Default is 1" min="1" />
+                      <input class="input" type="number" name="sentenceNum" value={sentenceNum} onChange={handleInputChange} placeholder="Number of sentences e.g. 3 or 5. Default is 1" min="1" />
                     </div>
 
                     <button type="button" onClick={onFormSubmit} class="btn btn-secondary btn-main m-2 submit_for_summery">Summarize!</button>
@@ -121,7 +121,7 @@ const TextSummarySubmit = () => {
             </ol>
             <form>
               <div className="search-wrapper mt-3 file-name mb-5" >
-                <input className="input" type="text" name="project" value={formState.project} onChange={handleSummaryNameChange} placeholder="Name of Project e.g. Climate Change" />
+                <input className="input" type="text" name="project" value={summaryName} onChange={handleSummaryNameChange} placeholder="Name of Project e.g. Climate Change" />
               </div>
               
               <button onClick={onSaveSummaryClick} type="save" className="btn btn-secondary btn-main submit_for_summery">Save summary!</button>
