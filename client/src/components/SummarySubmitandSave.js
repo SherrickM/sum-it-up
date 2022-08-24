@@ -76,7 +76,7 @@ const TextSummarySubmit = ({state, dispatch}) => {
 
     <section className="content-section">
       <div className="section-header-wrapper">
-        <h1 className="section-header">Summerize below!</h1>
+        <h1 className="section-header">Summarize below!</h1>
         <h1 className="section-header">Summary</h1>
         
       </div>
