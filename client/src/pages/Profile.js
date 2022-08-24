@@ -1,7 +1,7 @@
 import React from "react";
 import './Style.css'
 import TextSummarySubmit from '../components/SummarySubmitandSave'
-
+import SummaryList from "../components/SummaryList"
 function Profile() {
 
   return <div className="app-container">
@@ -55,6 +55,7 @@ function Profile() {
       </button>
       <div className="right-area-header-wrapper">
         <p className="right-area-header">History</p>
+        <SummaryList></SummaryList>
       </div>
       <div className="download-item-line">
         <ul>
