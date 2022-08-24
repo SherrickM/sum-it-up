@@ -1126,4 +1126,56 @@ ul.contributors-list li a i {
   width: 100%;
   border-radius: 5px;
   background-color: #441f49;
+  color: #ffffff;
 }
+
+.sum-results-output li:first-child {
+  width: 100%;
+  display: block;
+}
+.sit-loading-animation {
+  height: 140px;
+}
+.loading {
+  left: calc(70% - 70px);
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 4.4px;
+  text-transform: capitalize;
+  position: absolute;
+  overflow: hidden;
+}
+.loading:before {
+  color: #441f49;
+  content: attr(data-loading-text);
+}
+.loading:after {
+  top: 0;
+  left: 0;
+  width: 0;
+  opacity: 1;
+  color: #ffb907;
+  overflow: hidden;
+  position: absolute;
+  content: attr(data-loading-text);
+  -webkit-animation: loading 2.5s infinite;
+          animation: loading 2.5s infinite;
+}
+@-webkit-keyframes loading {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+

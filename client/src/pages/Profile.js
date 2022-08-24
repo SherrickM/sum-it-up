@@ -1,15 +1,21 @@
-import React from "react";
+import React, {useReducer} from "react";
 import './Style.css'
 import TextSummarySubmit from '../components/SummarySubmitandSave'
 import SummaryList from "../components/SummaryList"
+import { useUser } from '../context/UserContext';
+import reducer from '../context/reducers';
+
+
 function Profile() {
+  const initialState = useUser();
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return <div className="app-container">
     <div className="left-area">
 
 
     <a title="Home screen" href="/profile" className="item-link active" id="pageLink">
-      <i class="fa-solid fa-house-chimney"></i>
+      <i className="fa-solid fa-house-chimney"></i>
       </a>
       <a title="History" href="/summary" className="item-link active" id="pageLink">
         <i class="fa-solid fa-clock-rotate-left"></i>
@@ -41,7 +47,7 @@ function Profile() {
           
         </div>
       </section>
-     <TextSummarySubmit/>
+     <TextSummarySubmit state={state} dispatch={dispatch}/>
 
       
     </div>
@@ -58,7 +64,7 @@ function Profile() {
         
       </div>
       <div className="download-item-line">
-      <SummaryList/>
+      <SummaryList state={state} dispatch={dispatch}/>
       </div>
 
 

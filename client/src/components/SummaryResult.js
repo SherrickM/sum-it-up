@@ -16,26 +16,29 @@ const SummaryResult = (attr) => {
     let summary = data.getSummary.sentences;
     if (summary) {
       return (
-        <textarea name="" id="" cols="" rows="10">
-          { summary }
-        </textarea>
+        <textarea name="" id="" cols="" rows="10" value={summary}/>
+          
+        
       );
     } else {
       <span>no summary</span>;
     }
   }
   return(
-    <div class="loading-container">
-      <div class="loader">
-        <div class="loading-bars">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
-      </div>
-    </div>
+    <div className="sit-loading-animation">
+    <div className="loading-container">
+     <div className="loader">
+       <div className="loading-bars">
+         <div className="bar"></div>
+         <div className="bar"></div>
+         <div className="bar"></div>
+         <div className="bar"></div>
+         <div className="bar"></div>
+       </div>
+     </div>
+   </div>
+   <div className="loading" data-loading-text="summerizing..."></div>
+ </div>
 
   )
 };

@@ -74,7 +74,7 @@ const TextSummarySubmitFront= () => {
                     <button type="button" onClick={onFormSubmit} class="btn btn-secondary btn-main m-2 submit_for_summery">Summarize!</button>
 
 
-                  </form>-m 
+                  </form>
                 </div>
 
               </div>
@@ -94,7 +94,7 @@ const TextSummarySubmitFront= () => {
 
           <div className="files-table-header">
 
-            <ol>
+            <ol className="sum-results-output">
               <li className="files-table-row"> { (sumarizeMe) ? <SummaryResults  text={sumarizeMe} sentnum={sentenceNum} /> : null}</li>
               
             </ol>

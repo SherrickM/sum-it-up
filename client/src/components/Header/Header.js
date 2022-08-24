@@ -25,7 +25,7 @@ const Header = () => {
               {Auth.loggedIn() ? (
                 <>
                   <Button title="Log Out" className="btn-logout" href="/" onClick={logout}> 
-                  <i class="fa-solid fa-right-from-bracket logout-icon"></i>
+                  <i className="fa-solid fa-right-from-bracket logout-icon"></i>
                   </Button>
                 
 

@@ -5,7 +5,7 @@ const sumSchema = new Schema(
     summaryText: {
       type: String,
       required: true,
-      unique: true,
+      
       trim: true,
     },
     createDate: {
@@ -16,7 +16,7 @@ const sumSchema = new Schema(
     username: {
       type: String,
       required: false,
-      unique: true,
+      
       trim: true
     },
     summaryName:{
