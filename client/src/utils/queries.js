@@ -9,18 +9,20 @@ export const QUERY_USER = gql`
       summaries {
         _id
         summaryText
-        createdAt
+        createDate
       }
     }
   }
 `;
 
 export const QUERY_SUMMARIES = gql`
-  query getSummaries {
-    summaries {
-      _id
+  query summaries($username: String) {
+    summaries(username: $username) {
       summaryText
-      createdAt
+      summaryName
+      createDate
+      userEmail
+      _id
     }
   }
 `;
@@ -30,7 +32,7 @@ export const QUERY_SINGLE_SUMMARY = gql`
     summary(summaryId: $summaryId) {
       _id
       summaryText
-      createdAt
+      createDate
     }
   }
 `;
@@ -44,7 +46,7 @@ export const QUERY_ME = gql`
       summaries {
         _id
         summaryText
-        createdAt
+        createDate
       }
     }
   }

@@ -58,16 +58,16 @@ const resolvers = {
 
       return { token, user };
     },
-    addSummary: async (parent, { summaryText }, context) => {
+    addSummary: async (parent, { summaryText, summaryName }, context) => {
       if (context.user) {
-        const summary = await Summary.create({
-          summaryText,
-        });
+        var d = {
+          summaryText: summaryText,
+          summaryName: summaryName,
+          userEmail: context.user.username,
+          createDate: Date.now.toString()
+        };
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { summaries: summary._id } }
-        );
+        const summary = await Summary.create(d);
 
         return summary;
       }

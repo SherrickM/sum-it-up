@@ -1,24 +1,48 @@
 import React, { useState } from "react";
 
 import MuiAlert from '@material-ui/lab/Alert';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-import './Style.css'
-
-
-
-
-
+import './Style.css';
+import siticon from '../assets/images/sit-icon.png';
+import { QUERY_SUMMARIES } from "../utils/queries";
+import auth from "../utils/auth";
 
 const Login = (_props) => {
 
     const [open, setOpen] = useState(false);
     const [alertMsg, setAlertMsg] = useState('');
     const [severity, setSeverity] = useState('');
+    const [user, setUserData] = useState("");
+
     
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { error }] = useMutation(LOGIN_USER);
+
+    // query tp get user data including summmaries
+    
+
+    // const getUserData = async (userData) => {
+    //     var p = {variables:{
+    //         username: auth.getProfile().username
+    //     }};
+    //     const { loading, error, data } = useQuery(QUERY_SUMMARIES,p);
+
+
+
+    //     console.log(userData)
+    //   try {
+    //     const { data } = summaries({
+    //       variables: { username: userData.email },
+    //     });
+  
+    //     //window.location.reload();
+    //   } catch (err) {
+    //     console.error(err);
+    //   }
+    // };
+
 
     // update state based on form input changes
     const handleChange = event => {
@@ -78,6 +102,7 @@ const Login = (_props) => {
                                 }}
                             >
                                 <div className="card-body p-5 shadow-5 text-center">
+                                <img className="primary-logo" src={siticon} alt="Sum it up!" />
                                     <h2 className="fw-bold mb-5 text-purple">Sign In</h2>
                                     <form onSubmit={handleFormSubmit}>
                                         
