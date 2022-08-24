@@ -50,9 +50,9 @@ const TextSummarySubmitFront= () => {
 
 
     <section className="content-section">
-      <h1>Sum it up - Article Summerizer</h1>
-      <h2>Quick and Effifient way to summarize your article.... try it out!</h2>
-      <h3>The first one is on us..sign up for umlimited use</h3>
+      <h1>Sum it up - Article Summarizer</h1>
+      <h2>Quick and efficient way to summarize your article.... try it out!</h2>
+      <h3>The first one is on us... sign up for unlimited use</h3>
       <div className="section-header-wrapper">        
         
       </div>
@@ -64,7 +64,7 @@ const TextSummarySubmitFront= () => {
                 <div className="video-info-text">
                   <form className="section-part left" onSubmit={onFormSubmit}>                    
                     <div className="search-wrapper mt-3 file-name" id="summary-input-area">
-                      <textarea rows="20" cols="50" className="input" type="text" name="text" value={formState.text} onChange={handleChange} placeholder="sum it up's summerizer takes your sentences and makes changes, helping you to rework and rephrase your content quickly and efficiently!" />
+                      <textarea rows="20" cols="50" className="input" type="text" name="text" value={formState.text} onChange={handleChange} placeholder="Sum It Up's summarizer takes your sentences and makes changes, helping you to rework and rephrase your content quickly and efficiently!" />
                     </div>
 
                     <div class="search-wrapper mt-1 file-catagory" id="summary-sentance-num">
