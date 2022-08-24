@@ -46,7 +46,7 @@ function App() {
     <ApolloProvider client={client}>
       <Header />
       <Router>
-        <UserProvider>
+        {/* <UserProvider> */}
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route  path="/login" element={<Login/>} />
@@ -55,7 +55,7 @@ function App() {
           {loggedIn && <Route exact path="/summary" element={<Summary/>} />  }
           <Route element={<NoMatch/>} />
         </Routes>
-        </UserProvider>
+        {/* </UserProvider> */}
       </Router>
       <Footer />
     </ApolloProvider>
