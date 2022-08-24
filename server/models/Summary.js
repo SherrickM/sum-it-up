@@ -8,10 +8,20 @@ const sumSchema = new Schema(
       unique: true,
       trim: true,
     },
-    createdAt: {
+    createDate: {
       type: Date,
       default: Date.now,
       // get: timestamp =>
+    },
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true
+    },
+    summaryName:{
+      type: String,
+      required: false,
     }
   }
 );
