@@ -27,6 +27,7 @@ const TextSummarySubmit = ({state, dispatch}) => {
   const [sumarizeMe, setSumarizeMe] = useState(null);
   const [summaryName, setSummaryName] = useState("");
 
+
   // Set up our mutation with an option to handle errors
   const [addSummary, { error }] = useMutation(ADD_SUMMARY);
 
