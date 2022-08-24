@@ -23,7 +23,7 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('summaries');
+        return await User.findOne({ _id: context.user._id }).populate('summaries');
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -68,7 +68,7 @@ const resolvers = {
         };
 
         const summary = await Summary.create(d);
-
+        await User.findOneAndUpdate({ _id: context.user._id },{$push:{summaries:summary._id}});
         return summary;
       }
       throw new AuthenticationError('You need to be logged in!');

@@ -8,7 +8,7 @@ export const useUser = () => useContext(UserContext);
 
 // Creating our user provider. Accepts an argument of "props"
 export default function UserProvider(props) {
-  const user = null;
+  const user = {summaries:[]};
   const logged_in = false;
 
   return <UserContext.Provider value={{ user, logged_in }} {...props} />;

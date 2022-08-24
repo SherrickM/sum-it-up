@@ -1,14 +1,23 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_SUMMARIES } from "../utils/queries";
+import { QUERY_ME } from "../utils/queries";
 import  auth  from "../utils/auth";
 import { element } from "prop-types";
+import { useUser } from '../context/UserContext';
+import reducer from '../context/reducers';
+import { LOGIN } from "../context/actions";
 
-const SummaryList = (attr) => {
-    var user = {variables:{
-        username: auth.getProfile().username
-    }};
-    const { loading, error, data } = useQuery(QUERY_SUMMARIES,user);
+
+const SummaryList = ({state, dispatch}) => {
+   
+    const { loading, error, data } = useQuery(QUERY_ME);
+   
+    useEffect(function(){
+      console.log({loading, data})
+      if(data && data.hasOwnProperty("me"))
+      dispatch({type:LOGIN, payload:data.me})
+      console.log(state)
+    }, [loading, data])
 if(loading)
 {
 return(
@@ -18,9 +27,10 @@ return(
 }
 
 
-  if (data)
-  console.log(data)
+  if (state.user)
+  
   {
+    console.log(state)
     return(
   //   console.log(data)
   //   let summaryList =
@@ -31,7 +41,7 @@ return(
   //       <ul>{summaryList }</ul>
   //  )
   <ul>
-    {data.summaries.map((sums)=>(
+    {state.user.summaries.map((sums)=>(
           <li key={sums._id}>
             <div className="line-header">Date Created - </div>
             <div className="download-area">

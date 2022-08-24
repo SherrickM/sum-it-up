@@ -17,6 +17,7 @@ import Profile from './pages/Profile';
 import Summary from './pages/summary';
 import AuthService from './utils/auth';
 import { setContext } from '@apollo/client/link/context';
+import UserProvider  from './context/UserContext'
 const httplink = createHttpLink({uri:'/graphql'})
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
@@ -44,9 +45,10 @@ function App() {
   const loggedIn = AuthService.loggedIn()
   return (
     <ApolloProvider client={client}>
+      <UserProvider>
       <Header />
       <Router>
-        {/* <UserProvider> */}
+        
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route  path="/login" element={<Login/>} />
@@ -55,9 +57,10 @@ function App() {
           {loggedIn && <Route exact path="/summary" element={<Summary/>} />  }
           <Route element={<NoMatch/>} />
         </Routes>
-        {/* </UserProvider> */}
+        
       </Router>
       <Footer />
+      </UserProvider>
     </ApolloProvider>
   );
 }

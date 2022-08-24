@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import SummaryResults from "./SummaryResult"
 
 import { useMutation } from '@apollo/client';
 import { ADD_SUMMARY } from '../utils/mutations';
 
+import { ADDONETOSUMMARIES } from "../context/actions";
 
 
 
@@ -18,8 +19,8 @@ require('dotenv').config()
 // import reducer from "../../context/reducers";
 
 
-const TextSummarySubmit = () => {
-
+const TextSummarySubmit = ({state, dispatch}) => {
+ 
   const [formState, setFormState] = useState("");
   const [summarizedState, setsummarizedState] = useState();
   const [sentenceNum, setsentenceNum] = useState(1);
@@ -35,10 +36,11 @@ const TextSummarySubmit = () => {
     // On form submit, perform mutation and pass in form data object as arguments
     // It is important that the object fields are match the defined parameters in `ADD_THOUGHT` mutation
     try {
-      const { data } = addSummary({
+      const  { data }  =  await addSummary({
         variables: { summaryText: formState, summaryName: summaryName },
       });
-
+      dispatch({type:ADDONETOSUMMARIES, payload:data.addSummary})
+        console.log(data)
       //window.location.reload();
     } catch (err) {
       console.error(err);

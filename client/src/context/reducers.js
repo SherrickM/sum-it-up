@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, ADDONETOSUMMARIES } from './actions';
+import { LOGIN, LOGOUT, ADDONETOSUMMARIES , REPLACESUMMARIES} from './actions';
 
 const reducers = (state, {type, payload}) => {
   switch(type) {
@@ -18,11 +18,18 @@ const reducers = (state, {type, payload}) => {
         logged_in: false
       };
     case ADDONETOSUMMARIES:
+      console.log(state)
       return {
         ...state,
-        user: {...user, 
-          summaries: [...user.summaries, payload]}
+        user: {...state.user, 
+          summaries: [...state.user.summaries, payload]}
       };
+      case REPLACESUMMARIES:
+        return {
+          ...state,
+          user: {...state.user, 
+            summaries: [...payload, ]}
+        };
     default:
       return state;
   }

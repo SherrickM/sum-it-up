@@ -28,6 +28,8 @@ export const ADD_SUMMARY = gql`
   mutation addSummary($summaryText:String!, $summaryName: String) {
     addSummary(summaryText: $summaryText, summaryName: $summaryName) {
       _id
+      summaryText
+      createDate
     }
   }
 `;
