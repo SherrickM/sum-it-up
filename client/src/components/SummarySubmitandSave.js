@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import SummaryResults from "./SummaryResult"
+
 import { useMutation } from '@apollo/client';
 import { ADD_SUMMARY } from '../utils/mutations';
 
@@ -59,6 +60,11 @@ const TextSummarySubmit = () => {
       setSumarizeMe(formState);
       console.log(formState);
   }
+   // updates state value of summary name 
+   const handleSummaryNameChange = (event) => {
+    const value = event.target.value;
+    setSummaryName(value);
+  };
 
   return (
     
@@ -115,7 +121,7 @@ const TextSummarySubmit = () => {
             </ol>
             <form>
               <div className="search-wrapper mt-3 file-name mb-5" >
-                <input className="input" type="text" name="project" value={formState.project} onChange={handleChange} placeholder="Name of Project e.g. Climate Change" />
+                <input className="input" type="text" name="project" value={formState.project} onChange={handleSummaryNameChange} placeholder="Name of Project e.g. Climate Change" />
               </div>
               
               <button onClick={onSaveSummaryClick} type="save" className="btn btn-secondary btn-main submit_for_summery">Save summary!</button>
