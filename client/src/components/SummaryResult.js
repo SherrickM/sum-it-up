@@ -16,7 +16,7 @@ const SummaryResult = (attr) => {
     let summary = data.getSummary.sentences;
     if (summary) {
       return (
-        <textarea name="" id="" cols="100" rows="10">
+        <textarea name="" id="" cols="" rows="10">
           { summary }
         </textarea>
       );

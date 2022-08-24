@@ -136,6 +136,12 @@
     background: none;
     padding: 0;
   }
+  .search-wrapper.profile-input#summary-input-area {
+    height: 250px;
+    background: none;
+    padding: 0;
+  }
+
   .search-wrapper#summary-sentance-num {
     background: none;;
   }
@@ -1110,4 +1116,14 @@ ul.contributors-list li a i {
 }
 .logout-icon{
   font-size: 30px;
+}
+
+.sum-results-output {
+  padding: 0;
+}
+
+.sum-results-output textarea {
+  width: 100%;
+  border-radius: 5px;
+  background-color: #441f49;
 }
